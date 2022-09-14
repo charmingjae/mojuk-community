@@ -7,7 +7,7 @@ module.exports = {
 	mode: 'development',
 	// *==*==*==*==*==*==*==*
 	// entry : webpack의 최초 진입점. 웹 어플리케이션의 전반적인 구조 및 정보가 담겨있음
-	entry: './src/index.jsx',
+	entry: './src/root/index.jsx',
 	// *==*==*==*==*==*==*==*
 	// output: webpack의 빌드 결과
 	output: {
@@ -25,6 +25,11 @@ module.exports = {
 				exclude: /node_modules/,
 				// 사용할 loader
 				loader: "babel-loader"
+			},
+			{
+				test: /\.css$/,
+				// 사용할 모듈이 2개 이상일때. css-loader -> style-loader 순으로 작동
+				use: ['style-loader', 'css-loader']
 			}
 		]
 	},
@@ -42,6 +47,12 @@ module.exports = {
 		})
 	],
 	resolve: {
+		// *==*==*==*
+		// alias: import시 절대경로 지정
+		alias: {
+			Canvas: path.resolve(__dirname, 'src/root/Canvas/'),
+			Component: path.resolve(__dirname, 'src/component/')
+		},
 		extensions: ['.js', '.jsx', '.ts', '.tsx']
 	}
 }
