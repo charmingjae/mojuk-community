@@ -1,0 +1,6 @@
+{
+	"compilerOptions": {
+		"target" : "ES5", // Translate typescript to ES5
+		"module" : "CommonJS", // Import syntax. commonJs = require, es2015 and esnext = import
+	}
+}
