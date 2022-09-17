@@ -1,21 +1,14 @@
 import mysql = require("mysql");
+import { dbProperty } from "./property";
 
-const startConnect = () => {
-  const connection: mysql.Connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_ROOT,
-    password: process.env.DB_ROOT_PASSWORD,
-    database: "mysql",
-    port: process.env.DB_PORT,
-  });
-
-  connection.connect();
-
-  connection.query("SELECT Db from db", (err, rows) => {
-    if (err) throw err;
-    console.log("Result : ", rows);
-  });
-  connection.end();
+const doConnect = async () => {
+  const connection = mysql.createConnection(dbProperty);
+  console.log(connection);
+  //   try {
+  //     await connection.connect();
+  //   } catch (e) {
+  //     console.log("Error");
+  //   }
 };
 
-export { startConnect };
+export { doConnect };
