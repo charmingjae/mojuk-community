@@ -10,4 +10,13 @@ const main = async (
   res.send("This is main!!");
 };
 
-export const DefaultController = { main };
+const test = async (
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) => {
+  console.log("client request here");
+  res.send("Server send Response!!");
+};
+
+export const DefaultController = { main, test };

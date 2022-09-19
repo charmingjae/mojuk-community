@@ -1,11 +1,18 @@
 import express = require("express");
 import dotenv = require("dotenv");
+import cors = require("cors");
 import { checkDatabaseInitConnection } from "./db/connection";
 import { appRouter } from "./routes";
 
 const app: express.Application = express();
 dotenv.config();
 
+const corsOption = {
+  origin: ["http://localhost:3000"],
+  credentials: true,
+};
+
+app.use(cors(corsOption));
 app.use(appRouter);
 
 // *==*==*==*==*==*==*==*==*==*
