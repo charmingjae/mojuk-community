@@ -3,7 +3,8 @@ body {
 }
 
 .canvas_class{
-	width: 100vw;
+	width: 75vw;
 	height: 100vh;
-	background-color: aliceblue;
+	background-color: white;
+	margin: 0 auto;
 }

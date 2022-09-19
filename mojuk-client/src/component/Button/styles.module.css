@@ -1,0 +1,11 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
+.button_basic {
+	background-color: white;
+	border: none;
+	margin: 0 auto;
+	padding: auto;
+	font-family: 'pret-semibold';
+	font-size: large;
+	cursor: pointer;
+}

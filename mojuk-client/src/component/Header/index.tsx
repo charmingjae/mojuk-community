@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
+import axios from "axios";
 import styles from "./styles.module.css";
 import { LogoArea, InfoArea } from "./component";
-import axios from "axios";
 
 const testFunction = async () => {
   axios
