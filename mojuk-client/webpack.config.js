@@ -7,7 +7,7 @@ module.exports = {
   mode: "development",
   // *==*==*==*==*==*==*==*
   // entry : webpack의 최초 진입점. 웹 어플리케이션의 전반적인 구조 및 정보가 담겨있음
-  entry: "./src/root/index.jsx",
+  entry: "./src/root/index.tsx",
   // *==*==*==*==*==*==*==*
   // output: webpack의 빌드 결과
   output: {
@@ -38,6 +38,7 @@ module.exports = {
   devServer: {
     port: 3000, // Port of devServer - Value is optional
     hot: true, // HMR
+    historyApiFallback: true,
   },
   // *==*==*==*==*==*==*==*
   // plugins: loader가 할 수 없는 다른 작업을 수행하기 위한 도구
@@ -52,7 +53,6 @@ module.exports = {
     alias: {
       Canvas: path.resolve(__dirname, "./src/root/Canvas/"),
       Component: path.resolve(__dirname, "./src/component/"),
-      Page: path.resolve(__dirname, "./src/page/"),
     },
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },

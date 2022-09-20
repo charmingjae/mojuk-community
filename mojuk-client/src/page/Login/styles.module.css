@@ -1,0 +1,12 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
+.login_pg_box{
+	background-color: white;
+	border: 1px solid black;
+	width: 40%;
+	height: 40%;
+	margin: 0 auto;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}

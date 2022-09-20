@@ -1,7 +1,10 @@
 {
 	"compilerOptions": {
-		"plugins": [{ "name": "typescript-plugin-css-modules" }]
+		"target" : "ES5",
+		"module" : "CommonJS",
+		"jsx": "react",
+		"allowSyntheticDefaultImports": true,
 	},
-	"exclude": ["node_modules"],
-	"include": ["src/global.d.ts"]
+	"exclude": ["node_module"],
+	"include": ["./src/**/*.ts", "./src/**/*.tsx", "global.d.ts"]
 }

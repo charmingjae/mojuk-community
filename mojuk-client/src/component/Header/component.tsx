@@ -2,12 +2,13 @@ import React from "react";
 import styles from "./styles.module.css";
 import Button from "../Button";
 import { ButtonFunction } from "../../function/Button";
+import { Link } from "react-router-dom";
 
 const LogoArea = () => {
   return (
     <div className={styles.logo_area_class}>
-      <h1 className={styles.logo}>
-        <a className={styles.logo_tag_a} href="https://naver.com">
+      <h1>
+        <a className={styles.logo_tag_a} href="/">
           로고
         </a>
       </h1>
@@ -18,8 +19,9 @@ const LogoArea = () => {
 const InfoArea = () => {
   return (
     <div className={styles.info_area_class}>
-      <Button onClick={ButtonFunction.SignInFunction} content="Sign In" />
-      <Button onClick={ButtonFunction.SignUpFunction} content="Sign Up" />
+      <Link to="/login">
+        <Button onClick={ButtonFunction.SignInFunction} content="Sign In" />
+      </Link>
     </div>
   );
 };
