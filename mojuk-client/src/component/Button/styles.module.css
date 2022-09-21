@@ -9,3 +9,29 @@
 	font-size: large;
 	cursor: pointer;
 }
+
+.button_signin {
+	background-color: black;
+	border: 1px solid black;
+	color: white;
+	margin: 0 auto;
+	padding: auto;
+	font-family: 'pret-semibold';
+	font-size: x-large;
+	cursor: pointer;
+	width: 52%;
+	height: 13%;
+}
+
+.button_signup {
+	background-color: black;
+	border: 1px solid black;
+	color: white;
+	margin: 0 auto;
+	padding: auto;
+	font-family: 'pret-semibold';
+	font-size: x-large;
+	cursor: pointer;
+	width: 52%;
+	height: 13%;
+}

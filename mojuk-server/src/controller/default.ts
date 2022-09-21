@@ -15,7 +15,6 @@ const test = async (
   res: express.Response,
   next: express.NextFunction
 ) => {
-  console.log("client request here");
   res.send("Server send Response!!");
 };
 

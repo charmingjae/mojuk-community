@@ -1,0 +1,15 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
+.input_id{
+	width: 50%;
+	height: 8%;
+	margin-bottom: 1%;
+	border:1px solid black;
+}
+
+.input_password{
+	width: 50%;
+	height: 8%;
+	margin-bottom: 2%;
+	border:1px solid black;
+}

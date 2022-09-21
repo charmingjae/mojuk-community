@@ -1,30 +1,20 @@
 @import url("../../../public/assets/fonts/fonts.css");
 
-.login_pg_box{
+.register_pg_box{
 	background-color: white;
-	border: 1px solid black;
+	border:1px solid black;
 	width: 40%;
 	height: 40%;
 	margin: 0 auto;
-	display:flex;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	font-family: "pret-thin";
 }
 
-.login_pg_theme_wrapper{
+.register_pg_theme_wrapper{
 	font-family: "pret-thin";
 	font-size: xx-large;
 	margin-bottom: 5%;
-}
-
-.login_pg_register_a{
-	text-decoration: none;
-	color: black;
-}
-
-.login_pg_register{
-	font-size: small;
-	margin-top: 2%;
 }

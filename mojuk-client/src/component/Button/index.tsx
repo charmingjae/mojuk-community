@@ -1,9 +1,8 @@
 import React from "react";
-import styles from "./styles.module.css";
 
 const Button = ({ ...props }: any) => {
   return (
-    <button className={styles.button_basic} onClick={props.onClick}>
+    <button className={props.className} onClick={props.onClick}>
       {props.content}
     </button>
   );

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Input from "../../component/Input";
-import Button from "../../component/Button";
 import styles from "./styles.module.css";
 import buttonStyles from "../../component/Button/styles.module.css";
 import inputStyles from "../../component/Input/styles.module.css";
 import axios from "axios";
+import Button from "../../component/Button";
 
-const Login = () => {
+const Register = () => {
   /* State */
   const [userID, setUserID] = useState("");
   const [userPW, setUserPW] = useState("");
@@ -19,21 +19,26 @@ const Login = () => {
     setUserPW(event.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log(userID, userPW);
-    axios
-      .post("http://localhost:8888/api/auth/login", {
+    await axios
+      .post("http://localhost:8888/api/auth/register", {
         userID: userID,
         userPW: userPW,
       })
       .then((response) => {
-        console.log(response);
+        if (response.status == 201) {
+          alert("회원가입 완료");
+          window.location.replace("/login");
+        } else if (response.status != 201 && response.data.status == "failed") {
+          alert("이미 존재하는 ID입니다.");
+        }
       });
   };
 
   return (
-    <div className={styles.login_pg_box}>
-      <div className={styles.login_pg_theme_wrapper}>Sign In</div>
+    <div className={styles.register_pg_box}>
+      <div className={styles.register_pg_theme_wrapper}>Sign Up</div>
       <Input className={inputStyles.input_id} onChange={handleIdChange} />
       <Input
         className={inputStyles.input_password}
@@ -42,16 +47,11 @@ const Login = () => {
       />
       <Button
         onClick={handleSubmit}
-        className={buttonStyles.button_signin}
-        content="Sign In"
+        className={buttonStyles.button_signup}
+        content="Sign Up"
       />
-      <div className={styles.login_pg_register}>
-        <a href="/register" className={styles.login_pg_register_a}>
-          Want Register?
-        </a>
-      </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;

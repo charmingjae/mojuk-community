@@ -12,6 +12,8 @@ const corsOption = {
   credentials: true,
 };
 app.use(cors(corsOption));
+app.use(express.json()); // JSON -> body
+// app.use(express.urlencoded({ extended: false })); // HTML Form -> body
 
 app.use(appRouter);
 
