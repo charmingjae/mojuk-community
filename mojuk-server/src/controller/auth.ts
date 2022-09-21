@@ -38,7 +38,6 @@ const register = async (
       conn.end();
       throw err;
     } else if (JSON.parse(JSON.stringify(row))[0].cnt != 0) {
-      console.log("here..");
       res
         .status(200)
         .send({ message: "UserID is already exist", status: "failed" });
@@ -54,7 +53,6 @@ const register = async (
               conn.end();
               throw err;
             } else {
-              console.log(row);
               res.status(201).send("Insert data successfully.");
               conn.end();
             }
