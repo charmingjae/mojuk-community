@@ -9,10 +9,24 @@ const createSalt = async () => {
   return buf.toString("base64");
 };
 
-export const createHashedPassword = async (password: any) => {
+const createHashedPassword = async (password: any) => {
   const salt = await createSalt();
   const key = await pbkdf2Promise(password, salt, 104906, 64, "sha512");
   const hashedPassword = key.toString("base64");
 
   return { hashedPassword, salt };
 };
+
+const verifyPassword = async (
+  password: any,
+  userSalt: any,
+  userPassword: any
+) => {
+  const key = await pbkdf2Promise(password, userSalt, 104906, 64, "sha512");
+  const hashedPassword = key.toString("base64");
+
+  if (hashedPassword === userPassword) return true;
+  return false;
+};
+
+export { createHashedPassword, verifyPassword };

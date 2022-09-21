@@ -1,7 +1,7 @@
 import express = require("express");
 import { dbProperty } from "../db/property";
 import mysql = require("mysql");
-import { createHashedPassword } from "../util/salt";
+import { createHashedPassword, verifyPassword } from "../util/salt";
 
 const test = (
   req: express.Request,
@@ -12,13 +12,39 @@ const test = (
   res.send("Beautiful");
 };
 
-const login = (
+const login = async (
   req: express.Request,
   res: express.Response,
   next: express.NextFunction
 ) => {
-  console.log("request: ", req.body);
-  res.send("Post login!!");
+  const userID = req.body.userID;
+  const userPW = req.body.userPW;
+
+  let query = "SELECT userPW, userSalt FROM user WHERE userID = ?";
+  const conn = await mysql.createConnection(dbProperty);
+  conn.query(query, [userID], (err: any, row: any) => {
+    if (err) {
+      conn.end();
+      throw err;
+    } else if (row.length < 1) {
+      res.status(200).send({ message: "User not exist", status: "failed" });
+      conn.end();
+    } else if (row.length > 1) {
+      res.status(200).send({ message: "Error on user data", status: "failed" });
+      conn.end();
+    } else {
+      const dbUser = JSON.parse(JSON.stringify(row))[0];
+      verifyPassword(userPW, dbUser.userSalt, dbUser.userPW).then((result) => {
+        if (result) {
+          res.status(200).send({ message: "Login Success", status: "success" });
+          conn.end();
+        } else {
+          res.status(200).send({ message: "Login Failed", status: "failed" });
+          conn.end();
+        }
+      });
+    }
+  });
 };
 
 const register = async (

@@ -3,8 +3,8 @@ import Input from "../../component/Input";
 import styles from "./styles.module.css";
 import buttonStyles from "../../component/Button/styles.module.css";
 import inputStyles from "../../component/Input/styles.module.css";
-import axios from "axios";
 import Button from "../../component/Button";
+import { AuthFunction } from "../../function/auth";
 
 const Register = () => {
   /* State */
@@ -19,49 +19,6 @@ const Register = () => {
     setUserPW(event.target.value);
   };
 
-  /* ID 유효성 검사 */
-  const isValidIDInput = (param: String) => {
-    const transform = Number(param);
-    if (isNaN(transform)) {
-      return false;
-    } else if (transform < 0 || transform >= 2147483647) {
-      return false;
-    } else if (transform.toString().length != 9) {
-      return false;
-    }
-    return true;
-  };
-
-  /* Password 유효성 검사 */
-  const isValidPWInput = (param: String) => {
-    if (param.length < 1) return false;
-    return true;
-  };
-
-  const handleSubmit = async () => {
-    console.log(userID, userPW);
-    if (isValidIDInput(userID) && isValidPWInput(userPW)) {
-      await axios
-        .post("http://localhost:8888/api/auth/register", {
-          userID: userID,
-          userPW: userPW,
-        })
-        .then((response) => {
-          if (response.status == 201) {
-            alert("회원가입 완료");
-            window.location.replace("/login");
-          } else if (
-            response.status != 201 &&
-            response.data.status == "failed"
-          ) {
-            alert("이미 존재하는 ID입니다.");
-          }
-        });
-    } else {
-      alert("유효하지 않은 입력 값입니다.");
-    }
-  };
-
   return (
     <div className={styles.register_pg_box}>
       <div className={styles.register_pg_theme_wrapper}>Sign Up</div>
@@ -72,7 +29,7 @@ const Register = () => {
         type="password"
       />
       <Button
-        onClick={handleSubmit}
+        onClick={() => AuthFunction.SignUpFunction(userID, userPW)}
         className={buttonStyles.button_signup}
         content="Sign Up"
       />

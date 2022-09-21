@@ -8,12 +8,15 @@ const testFunction = async () => {
     .get("http://localhost:8888/api/test", { withCredentials: true })
     .then((res) => {
       console.log(res);
+    })
+    .catch((e: Error) => {
+      alert("서버 연결 실패 :(");
     });
 };
 
 const Header = () => {
   useEffect(() => {
-    testFunction();
+    // testFunction();
   }, []);
 
   return (

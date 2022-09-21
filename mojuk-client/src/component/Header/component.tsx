@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../Button";
-import { ButtonFunction } from "../../function/auth";
 import styles from "./styles.module.css";
 import buttonStyles from "../Button/styles.module.css";
 
@@ -21,11 +20,7 @@ const InfoArea = () => {
   return (
     <div className={styles.info_area_class}>
       <Link to="/login">
-        <Button
-          className={buttonStyles.button_basic}
-          onClick={ButtonFunction.SignInFunction}
-          content="Sign In"
-        />
+        <Button className={buttonStyles.button_basic} content="Sign In" />
       </Link>
     </div>
   );

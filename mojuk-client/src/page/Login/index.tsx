@@ -4,7 +4,7 @@ import Button from "../../component/Button";
 import styles from "./styles.module.css";
 import buttonStyles from "../../component/Button/styles.module.css";
 import inputStyles from "../../component/Input/styles.module.css";
-import axios from "axios";
+import { AuthFunction } from "../../function/auth";
 
 const Login = () => {
   /* State */
@@ -19,18 +19,6 @@ const Login = () => {
     setUserPW(event.target.value);
   };
 
-  const handleSubmit = () => {
-    console.log(userID, userPW);
-    axios
-      .post("http://localhost:8888/api/auth/login", {
-        userID: userID,
-        userPW: userPW,
-      })
-      .then((response) => {
-        console.log(response);
-      });
-  };
-
   return (
     <div className={styles.login_pg_box}>
       <div className={styles.login_pg_theme_wrapper}>Sign In</div>
@@ -41,7 +29,7 @@ const Login = () => {
         type="password"
       />
       <Button
-        onClick={handleSubmit}
+        onClick={() => AuthFunction.SignInFunction(userID, userPW)}
         className={buttonStyles.button_signin}
         content="Sign In"
       />
