@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import Header from "../../component/Header";
 import MainPage from "../../page/Main";

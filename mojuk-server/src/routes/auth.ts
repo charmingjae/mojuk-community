@@ -5,5 +5,6 @@ const authRouter: express.Router = express.Router();
 
 authRouter.use("/login", AuthController.login);
 authRouter.use("/register", AuthController.register);
+authRouter.use("/checkLogin", AuthController.checkLogin);
 
 export { authRouter };

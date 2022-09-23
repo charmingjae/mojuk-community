@@ -1,17 +1,16 @@
 import express = require("express");
-import { dbProperty } from "../db/property";
 import mysql = require("mysql");
+import { token } from "../util/token";
+import { dbProperty } from "../db/property";
 import { createHashedPassword, verifyPassword } from "../util/salt";
 
-const test = (
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) => {
-  console.log("auth controller activate");
-  res.send("Beautiful");
-};
+import jwt = require("jsonwebtoken");
+import dotenv = require("dotenv");
+dotenv.config();
 
+// *==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*
+// Login Controller
+// *==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*
 const login = async (
   req: express.Request,
   res: express.Response,
@@ -36,7 +35,12 @@ const login = async (
       const dbUser = JSON.parse(JSON.stringify(row))[0];
       verifyPassword(userPW, dbUser.userSalt, dbUser.userPW).then((result) => {
         if (result) {
-          res.status(200).send({ message: "Login Success", status: "success" });
+          const getToken = token(userID);
+          res.status(200).send({
+            message: "Login Success",
+            status: "success",
+            token: getToken,
+          });
           conn.end();
         } else {
           res.status(200).send({ message: "Login Failed", status: "failed" });
@@ -47,6 +51,9 @@ const login = async (
   });
 };
 
+// *==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*
+// Register Controller
+// *==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*
 const register = async (
   req: express.Request,
   res: express.Response,
@@ -89,4 +96,24 @@ const register = async (
   });
 };
 
-export const AuthController = { login, register, test };
+// *==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*
+// Utility
+// *==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*==*
+const checkLogin = async (
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) => {
+  let decode: string | jwt.JwtPayload;
+  try {
+    decode = jwt.verify(
+      req.query.accessToken.toString(),
+      process.env.SERVER_SECRET_KEY
+    );
+    res.status(200).send({ data: decode["userID"], status: "success" });
+  } catch (err) {
+    res.status(200).send({ message: err.message, status: "failed" });
+  }
+};
+
+export const AuthController = { login, register, checkLogin };

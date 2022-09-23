@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios, { Axios, AxiosStatic } from "axios";
+import { TokenFunction } from "../token";
 
 /* ID 유효성 검사 */
 const isValidIDInput = (param: String) => {
@@ -27,7 +28,11 @@ const SignInFunction = async (userID: any, userPW: any) => {
     })
     .then((response) => {
       if (response.status == 200 && response.data.status == "success") {
+        console.log(response);
+        TokenFunction.saveTokenInLocalStorage(response.data.token.refreshToken);
+        TokenFunction.saveTokenInCookie(response.data.token.accessToken);
         alert("Login 성공!");
+        window.location.replace("/");
       } else {
         alert("입력하신 내용을 확인해주세요.");
       }
@@ -60,7 +65,22 @@ const SignUpFunction = async (userID: any, userPW: any) => {
   }
 };
 
+const CheckLoginedFunction = async (accessToken: any, refreshToken: any) => {
+  let result: any;
+  if (accessToken != "" || refreshToken != null) {
+    result = await axios
+      .get("http://localhost:8888/api/auth/checkLogin", {
+        params: { accessToken: accessToken, refreshToken: refreshToken },
+      })
+      .then((response) => {
+        return response.data;
+      });
+  }
+  return result;
+};
+
 export const AuthFunction = {
   SignInFunction,
   SignUpFunction,
+  CheckLoginedFunction,
 };

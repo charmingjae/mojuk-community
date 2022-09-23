@@ -16,14 +16,28 @@ const LogoArea = () => {
   );
 };
 
-const InfoArea = () => {
-  return (
-    <div className={styles.info_area_class}>
-      <Link to="/login">
-        <Button className={buttonStyles.button_basic} content="Sign In" />
-      </Link>
-    </div>
-  );
+const InfoArea = ({ ...props }: any) => {
+  console.log(props);
+  if (props.loggedIn.length !== 0 && props.loggedin !== "") {
+    return (
+      <div className={styles.info_area_class}>
+        <Link to="/">
+          <Button
+            className={buttonStyles.button_basic}
+            content={props.loggedIn}
+          />
+        </Link>
+      </div>
+    );
+  } else {
+    return (
+      <div className={styles.info_area_class}>
+        <Link to="/login">
+          <Button className={buttonStyles.button_basic} content="Sign In" />
+        </Link>
+      </div>
+    );
+  }
 };
 
 export { LogoArea, InfoArea };
