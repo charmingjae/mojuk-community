@@ -1,0 +1,13 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
+.footer_wrapper{
+	/* position: fixed; */
+	bottom: 0;
+	height: 10vh;
+	border-top: 1px solid lightgray;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "pret-thin";
+}

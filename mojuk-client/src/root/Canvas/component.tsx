@@ -5,6 +5,7 @@ import MainPage from "../../page/Main";
 import Login from "../../page/Login";
 import Register from "../../page/Register";
 import { Routes, Route } from "react-router-dom";
+import Footer from "../../component/Footer";
 
 const Component = () => {
   return (
@@ -15,6 +16,7 @@ const Component = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
