@@ -28,10 +28,8 @@ const SignInFunction = async (userID: any, userPW: any) => {
     })
     .then((response) => {
       if (response.status == 200 && response.data.status == "success") {
-        console.log(response);
         TokenFunction.saveTokenInLocalStorage(response.data.token.refreshToken);
         TokenFunction.saveTokenInCookie(response.data.token.accessToken);
-        alert("Login 성공!");
         window.location.replace("/");
       } else {
         alert("입력하신 내용을 확인해주세요.");
@@ -73,6 +71,9 @@ const CheckLoginedFunction = async (accessToken: any, refreshToken: any) => {
         params: { accessToken: accessToken, refreshToken: refreshToken },
       })
       .then((response) => {
+        if (response.data.status === "refresh") {
+          TokenFunction.saveTokenInCookie(response.data.token.accessToken);
+        }
         return response.data;
       });
   }

@@ -6,7 +6,6 @@ const saveTokenInLocalStorage = (param: any) => {
 // /* Save Access Token in cookie */
 
 const setCookie = (key: any, value: any, expire: any) => {
-  console.log("set cookie");
   let expireDate = new Date(); // New date object
   expireDate.setTime(expireDate.getTime() + expire * 60 * 1000); // 밀리세컨드 단위로 쿠키 만료 날짜 변경 - 분
   //   expireDate.setDate(expireDate.getDate() + expire); // Set expire date

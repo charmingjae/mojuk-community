@@ -13,7 +13,11 @@ const Header = () => {
       TokenFunction.getCookie("access"),
       localStorage.getItem("refresh")
     ).then((result) => {
-      if (result.status === "success") setLoggedIn(result.data);
+      if (
+        result &&
+        (result.status === "success" || result.status === "refresh")
+      )
+        setLoggedIn(result.data);
       setLoading(false);
     });
   }, []);

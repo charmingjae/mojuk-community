@@ -40,7 +40,7 @@ const test = async (
       iat: Math.floor(Date.now() / 1000) - 30,
     },
     process.env.SERVER_SECRET_KEY,
-    { algorithm: "HS256", expiresIn: "365d" }
+    { algorithm: "HS256", expiresIn: "10d" }
   );
   res.send({ accessToken: accessToken, refreshToken: refreshToken });
 };

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 const test = () => {
-  console.log("Main useEffect");
+  //   console.log("Main useEffect");
 };
 
 const MainPage = ({ ...props }: any) => {
