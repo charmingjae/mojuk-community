@@ -1,0 +1,17 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
+.boardContent_wrapper {
+	background-color: gray;
+	height:100%;
+	overflow: auto;
+}
+
+.boardContent_previewpost{
+	width:100%;
+	height: 7%;
+	background-color: white;
+	border-bottom: 1px solid lightgray;
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+}

@@ -8,4 +8,6 @@ body {
 	height: 100vh;
 	background-color: white;
 	margin: 0 auto;
+	display:flex;
+	flex-flow: column;
 }
