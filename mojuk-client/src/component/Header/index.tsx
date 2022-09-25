@@ -9,6 +9,7 @@ const Header = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log("Do!");
     AuthFunction.CheckLoginedFunction(
       TokenFunction.getCookie("access"),
       localStorage.getItem("refresh")

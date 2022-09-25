@@ -1,0 +1,19 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
+.board_header_wrapper{
+	font-family: "pret-medium";
+	/* background-color: khaki; */
+	height: 5%;
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid gray;
+}
+
+.board_header_theme{
+	margin-left: 1%;
+}
+
+.board_header_more{
+	margin-right: 1%;
+}

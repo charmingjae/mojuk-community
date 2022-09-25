@@ -3,4 +3,15 @@
 .main_wrapper {
 	background-color: white;
 	height: 100%;
+	display:flex;
+	justify-content: center;
+	/* align-items: center; */
+}
+
+/* Main board */
+.main_board_wrapper{
+	background-color: white;
+	height: 90%;
+	width: 50%;
+	border: 1px solid black;
 }
