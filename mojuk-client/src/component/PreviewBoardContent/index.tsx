@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles.module.css";
 import { PreviewPost } from "./component";
 
-const BoardContent = () => {
+const PreviewBoardContent = () => {
   return (
     <div className={styles.boardContent_wrapper}>
       <PreviewPost />
@@ -38,4 +38,4 @@ const BoardContent = () => {
   );
 };
 
-export default BoardContent;
+export default PreviewBoardContent;

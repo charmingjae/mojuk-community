@@ -1,0 +1,47 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
+.write_wrapper{
+	background-color: white;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.write_contents_wrapper {
+	background-color: white;
+	width: 60%;
+	height: 90%;
+	border: 1px solid black;
+}
+
+.write_contents_header {
+	width:100%;
+	background-color: white;
+	height: 20%;
+	display:flex;
+	flex-flow: column;
+}
+
+.write_contents_selectbox {
+	background-color: white;
+	height: 40%;
+	display:flex;
+	align-items: center;
+}
+
+.write_contents_theme{
+	background-color: white;
+	height:60%;
+	display:flex;
+	/* justify-content: center; */
+	align-items: center;
+}
+
+.write_theme_input{
+	margin-left: 3%;
+	width: 90%;
+	height:60%;
+	border:1px solid black;
+	font-family: "pret-bold";
+	font-size: larger;
+}

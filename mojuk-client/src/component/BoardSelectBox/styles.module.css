@@ -1,0 +1,10 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
+.selectBoxWrapper{
+	width: 200px;
+	height:70%;
+	margin-left: 3%;
+	border:1px solid black;
+	font-family: "pret-bold";
+	font-size: large;
+}

@@ -11,8 +11,9 @@ module.exports = {
   // *==*==*==*==*==*==*==*
   // output: webpack의 빌드 결과
   output: {
-    filename: "bundle.js", // 빌드 결과 파일의 이름
     path: path.resolve(__dirname, "./dist"), // 해당 파일의 경로.
+    publicPath: "/",
+    filename: "bundle.js", // 빌드 결과 파일의 이름
   },
   // *==*==*==*==*==*==*==*
   // module : Webpack에서 사용할 module(loader)

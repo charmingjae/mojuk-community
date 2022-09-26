@@ -1,10 +1,14 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-const PreviewPost = () => {
+const PostTheme = ({ ...props }: any) => {
+  return <div className={styles.post_theme}>Preview Theme</div>;
+};
+
+const PreviewPost = ({ ...props }: any) => {
   return (
     <div className={styles.boardContent_previewpost}>
-      <div>Preview</div>
+      <PostTheme />
     </div>
   );
 };

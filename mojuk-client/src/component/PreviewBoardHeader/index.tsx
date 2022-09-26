@@ -2,13 +2,13 @@ import React from "react";
 import styles from "./styles.module.css";
 import { Theme, More } from "./component";
 
-const BoardHeader = ({ ...props }: any) => {
+const PreviewBoardHeader = ({ ...props }: any) => {
   return (
     <div className={styles.board_header_wrapper}>
-      <Theme boardTheme="자유게시판" />
-      <More />
+      <Theme boardTheme={props.boardTheme} />
+      <More linkTo={props.linkTo} />
     </div>
   );
 };
 
-export default BoardHeader;
+export default PreviewBoardHeader;

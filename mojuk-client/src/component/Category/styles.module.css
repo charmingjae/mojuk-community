@@ -1,0 +1,12 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
+.category_class{
+	background-color: white;
+	font-size: larger;
+	text-decoration: none;
+}
+
+a{
+	color: black;
+	text-decoration: none;
+}

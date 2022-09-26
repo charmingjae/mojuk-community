@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
-import { LogoArea, InfoArea } from "./component";
+import { LogoArea, InfoArea, CategoryArea } from "./component";
 import { AuthFunction } from "../../function/auth";
 import { TokenFunction } from "../../function/token";
 
@@ -9,7 +9,6 @@ const Header = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("Do!");
     AuthFunction.CheckLoginedFunction(
       TokenFunction.getCookie("access"),
       localStorage.getItem("refresh")
@@ -30,6 +29,7 @@ const Header = () => {
       ) : (
         <>
           <LogoArea />
+          <CategoryArea />
           <InfoArea loggedIn={loggedIn} />
         </>
       )}

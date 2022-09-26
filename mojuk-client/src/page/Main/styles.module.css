@@ -5,15 +5,16 @@
 	height: 100%;
 	display:flex;
 	justify-content: center;
-	/* align-items: center; */
+	align-items: center;
 }
 
 /* Main board */
 .main_board_wrapper{
 	background-color: white;
-	height: 95%;
+	height: 90%;
 	width: 50%;
 	border: 1px solid black;
 	display:flex;
 	flex-direction: column;
+	margin: 0 auto;
 }

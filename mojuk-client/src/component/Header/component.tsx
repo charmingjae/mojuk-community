@@ -3,15 +3,14 @@ import { Link } from "react-router-dom";
 import Button from "../Button";
 import styles from "./styles.module.css";
 import buttonStyles from "../Button/styles.module.css";
+import Category from "../Category";
 
 const LogoArea = () => {
   return (
     <div className={styles.logo_area_class}>
-      <h1>
-        <a className={styles.logo_tag_a} href="/">
-          로고
-        </a>
-      </h1>
+      <Link to="/">
+        <h1>모죽</h1>
+      </Link>
     </div>
   );
 };
@@ -40,4 +39,15 @@ const InfoArea = ({ ...props }: any) => {
   }
 };
 
-export { LogoArea, InfoArea };
+const CategoryArea = ({ ...props }: any) => {
+  return (
+    <div className={styles.category_area_class}>
+      <Category categoryName="자유게시판" />
+      <Category />
+      <Category />
+      <Category />
+    </div>
+  );
+};
+
+export { LogoArea, InfoArea, CategoryArea };

@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./styles.module.css";
-import BoardHeader from "../../component/BoardHeader";
-import BoardContent from "../../component/BoardContent";
+import PreviewBoardHeader from "../../component/PreviewBoardHeader";
+import PreviewBoardContent from "../../component/PreviewBoardContent";
 
 const MainBoard = ({ ...props }: any) => {
   return (
     <div className={styles.main_board_wrapper}>
-      <BoardHeader />
-      <BoardContent />
+      <PreviewBoardHeader boardTheme="자유게시판" linkTo="/board/free" />
+      <PreviewBoardContent />
     </div>
   );
 };
