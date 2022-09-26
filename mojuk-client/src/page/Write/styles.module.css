@@ -12,6 +12,8 @@
 	width: 60%;
 	height: 90%;
 	border: 1px solid black;
+	display:flex;
+	flex-flow: column;
 }
 
 .write_contents_header {
@@ -44,4 +46,13 @@
 	border:1px solid black;
 	font-family: "pret-bold";
 	font-size: larger;
+	padding-left: 10px;
+}
+
+.write_contents_body {
+	width:100%;
+	height:100%;
+	background-color: aqua;
+	display:flex;
+	flex-flow: column;
 }

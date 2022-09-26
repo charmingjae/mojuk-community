@@ -34,8 +34,12 @@ const WriteContentsHeader = ({ ...props }: any) => {
   );
 };
 
+const WriteContentsBody = ({ ...props }: any) => {
+  return <div className={styles.write_contents_body}>body</div>;
+};
+
 const WriteContentsWrapper = ({ ...props }: any) => {
   return <div className={styles.write_contents_wrapper}>{props.children}</div>;
 };
 
-export { WriteContentsWrapper, WriteContentsHeader };
+export { WriteContentsWrapper, WriteContentsHeader, WriteContentsBody };
