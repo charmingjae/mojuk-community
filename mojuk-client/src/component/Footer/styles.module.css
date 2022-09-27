@@ -3,7 +3,7 @@
 .footer_wrapper{
 	/* position: fixed; */
 	bottom: 0;
-	height: 10vh;
+	height: 10%;
 	border-top: 1px solid lightgray;
 	background-color: white;
 	display: flex;

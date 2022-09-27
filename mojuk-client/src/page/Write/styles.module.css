@@ -1,7 +1,8 @@
 @import url("../../../public/assets/fonts/fonts.css");
 
 .write_wrapper{
-	background-color: white;
+	font-family: "pret-light";
+	background-color: blueviolet;
 	height: 100%;
 	display: flex;
 	justify-content: center;
@@ -9,8 +10,8 @@
 
 .write_contents_wrapper {
 	background-color: white;
-	width: 60%;
 	height: 90%;
+	width: 60%;
 	border: 1px solid black;
 	display:flex;
 	flex-flow: column;
@@ -52,7 +53,7 @@
 .write_contents_body {
 	width:100%;
 	height:100%;
-	background-color: aqua;
+	background-color: white;
 	display:flex;
 	flex-flow: column;
 }

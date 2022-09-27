@@ -1,20 +1,18 @@
 @import url("../../../public/assets/fonts/fonts.css");
 
 .main_wrapper {
-	background-color: white;
+	font-family: "pret-light";
+	background-color: aqua;
 	height: 100%;
 	display:flex;
 	justify-content: center;
-	align-items: center;
 }
 
-/* Main board */
 .main_board_wrapper{
 	background-color: white;
-	height: 90%;
+	height: 95%;
 	width: 50%;
 	border: 1px solid black;
 	display:flex;
-	flex-direction: column;
-	margin: 0 auto;
+	flex-flow: column;
 }
