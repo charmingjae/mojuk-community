@@ -10,6 +10,17 @@
 	cursor: pointer;
 }
 
+.button_basic_black {
+	background-color: black;
+	color:white;
+	border: none;
+	font-family: 'pret-semibold';
+	font-size: large;
+	cursor: pointer;
+	width: 100%;
+	height: 10%;
+}
+
 .button_signin {
 	background-color: black;
 	border: 1px solid black;

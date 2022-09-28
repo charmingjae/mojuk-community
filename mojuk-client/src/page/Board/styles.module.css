@@ -2,7 +2,7 @@
 
 .board_wrapper{
 	font-family: "pret-light";
-	background-color: gray;
+	background-color: white;
 	height: 100%;
 	display: flex;
 	justify-content: center;
@@ -19,14 +19,14 @@
 
 .board_header{
 	height: 7%;
-	border-bottom: 1px solid lightgray;
+	border-bottom: 1px solid black;
 	display:flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
 .board_contents{
-	background-color: gray;
+	background-color: white;
 	height:100%;
 	overflow: auto;
 }

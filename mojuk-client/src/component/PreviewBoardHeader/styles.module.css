@@ -3,11 +3,11 @@
 .board_header_wrapper{
 	font-family: "pret-medium";
 	/* background-color: khaki; */
-	height: 5%;
+	height: 7%;
 	display:flex;
 	justify-content: space-between;
 	align-items: center;
-	border-bottom: 1px solid gray;
+	border-bottom: 1px solid black;
 }
 
 .board_header_theme{

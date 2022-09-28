@@ -9,7 +9,7 @@ const LogoArea = () => {
   return (
     <div className={styles.logo_area_class}>
       <Link to="/">
-        <h1>모죽</h1>
+        <h1>로고</h1>
       </Link>
     </div>
   );
