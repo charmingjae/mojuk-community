@@ -124,9 +124,6 @@ const checkLogin = async (
       );
       console.log(decode);
       await client.get(decode["userID"]).then((response) => {
-        console.log("response : ", response);
-        console.log("query : ", req.query.refreshToken);
-        console.log(response === req.query.refreshToken);
         if (response != null && response === req.query.refreshToken) {
           res.status(200).send({
             data: decode["userID"],

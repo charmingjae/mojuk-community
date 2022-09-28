@@ -7,7 +7,7 @@ const MainBoard = ({ ...props }: any) => {
   return (
     <div className={styles.main_board_wrapper}>
       <PreviewBoardHeader boardTheme="자유게시판" linkTo="/board/free" />
-      <PreviewBoardContent />
+      <PreviewBoardContent boardType="free" />
     </div>
   );
 };

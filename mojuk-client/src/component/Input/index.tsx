@@ -7,6 +7,7 @@ const Input = ({ ...props }: any) => {
       onChange={props.onChange}
       className={props.className}
       type={props.type}
+      name={props.name}
     />
   );
 };

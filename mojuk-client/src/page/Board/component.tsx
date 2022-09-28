@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import { Theme } from "../../component/PreviewBoardHeader/component";
 import { PreviewPost } from "../../component/PreviewBoardContent/component";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const Write = ({ ...props }: any) => {
   return (
@@ -22,20 +23,40 @@ const BoardHeader = ({ ...props }: any) => {
 };
 
 const BoardContent = ({ ...props }: any) => {
+  const [loading, setLoading] = useState(true);
+  const [contents, setContents] = useState([]);
+
+  let result = [];
+  useEffect(() => {
+    axios
+      .get("http://localhost:8888/api/board/get", {
+        params: { boardType: props.boardType },
+      })
+      .then((response) => {
+        response.data.data.forEach(function (element) {
+          result.push({
+            idx: element.idx,
+            publisher: element.publisher,
+            theme: element.theme,
+          });
+        });
+        setContents(result);
+        setLoading(false);
+      });
+  }, []);
+
   return (
-    <div className={styles.board_contents}>
-      <PreviewPost />
-      <PreviewPost />
-      <PreviewPost />
-      <PreviewPost />
-      <PreviewPost />
-      <PreviewPost />
-      <PreviewPost />
-      <PreviewPost />
-      <PreviewPost />
-      <PreviewPost />
-      <PreviewPost />
-    </div>
+    <>
+      {loading ? (
+        <input type="hidden" />
+      ) : (
+        <div className={styles.board_contents}>
+          {contents.map((post) => (
+            <PreviewPost {...post} key={post.idx} />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 
@@ -43,7 +64,7 @@ const BoardContentsWrapper = ({ ...props }: any) => {
   return (
     <div className={styles.board_contents_wrapper}>
       <BoardHeader boardTheme={props.boardTheme} boardType={props.boardType} />
-      <BoardContent />
+      <BoardContent boardType={props.boardType} />
     </div>
   );
 };
