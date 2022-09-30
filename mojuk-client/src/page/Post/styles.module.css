@@ -1,0 +1,56 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
+.post_wrapper{
+	font-family: "pret-thin";
+	height: 100%;
+	background-color: white;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+}
+
+.post_content_wrapper{
+	height: 90%;
+	width: 50%;
+	background-color: white;
+	border: 1px solid black;
+	display: flex;
+	/* justify-content: center; */
+	flex-flow: column;
+}
+
+.post_content_theme {
+	border-bottom: 1px solid black;
+	height: 15%;
+	display:flex;
+	justify-content: space-evenly;
+	align-content: center;
+	flex-flow: column;
+}
+
+.post_content_body{
+	padding: 2%;
+	overflow: scroll;
+	height:81%;
+}
+
+.post_content_body  div{
+	height:100%;
+}
+
+.theme{
+	margin-left: 1%;
+	font-family: "pret-bold";
+	font-size: xx-large;
+}
+
+.publisher{
+	margin-left: 1%;
+}
+
+.toastui-editor-contents
+{
+	height: 100% !important;
+	overflow: hidden;
+}

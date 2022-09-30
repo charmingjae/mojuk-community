@@ -21,7 +21,6 @@ const PreviewBoardContent = ({ ...props }: any) => {
             theme: element.theme,
           });
         });
-        console.log("result : ", result);
         setContents(result);
         setLoading(false);
       });
@@ -34,7 +33,7 @@ const PreviewBoardContent = ({ ...props }: any) => {
       ) : (
         <div className={styles.boardContent_wrapper}>
           {contents.map((post) => (
-            <PreviewPost {...post} key={post.idx} />
+            <PreviewPost {...post} key={post.idx} postId={post.idx} />
           ))}
         </div>
       )}

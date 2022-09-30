@@ -8,11 +8,14 @@ import { Routes, Route } from "react-router-dom";
 import Footer from "../../component/Footer";
 import Board from "../../page/Board";
 import WritePage from "../../page/Write";
+import Post from "../../page/Post";
 
 const Component = () => {
+  const [userSession, setUserSession] = useState("");
+
   return (
     <div className={styles.canvas_class}>
-      <Header />
+      <Header setSession={setUserSession} />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<Login />} />
@@ -20,14 +23,24 @@ const Component = () => {
         <Route path="/board">
           <Route
             path="free"
-            element={<Board boardTheme="자유게시판" boardType="free" />}
+            element={
+              <Board
+                boardTheme="자유게시판"
+                boardType="free"
+                session={userSession}
+              />
+            }
           />
           <Route
             path="question"
             element={<Board boardTheme="자유게시판" boardType="free" />}
           />
         </Route>
-        <Route path="/write/:boardType" element={<WritePage />} />
+        <Route
+          path="/write/:boardType"
+          element={<WritePage session={userSession} />}
+        />
+        <Route path="/post/:postId" element={<Post session={userSession} />} />
       </Routes>
       <Footer />
     </div>

@@ -4,7 +4,7 @@ import { LogoArea, InfoArea, CategoryArea } from "./component";
 import { AuthFunction } from "../../function/auth";
 import { TokenFunction } from "../../function/token";
 
-const Header = () => {
+const Header = ({ ...props }: any) => {
   const [loggedIn, setLoggedIn] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -16,8 +16,10 @@ const Header = () => {
       if (
         result &&
         (result.status === "success" || result.status === "refresh")
-      )
+      ) {
         setLoggedIn(result.data);
+        props.setSession(result.data);
+      }
       setLoading(false);
     });
   }, []);

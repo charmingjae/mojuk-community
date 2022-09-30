@@ -42,20 +42,18 @@ const getContent = async (
 ) => {
   try {
     const boardType = req.query.boardType;
-    let query = "SELECT * FROM board WHERE category = ?";
+    let query = "SELECT * FROM board WHERE category = ? ORDER BY idx DESC";
     const conn = await mysql.createConnection(dbProperty);
     conn.query(query, [boardType], (err: Error, row: any) => {
       if (err) {
         conn.end();
         throw err;
       } else {
-        res
-          .status(200)
-          .send({
-            message: "Get contents Successfully",
-            status: "success",
-            data: row,
-          });
+        res.status(200).send({
+          message: "Get contents Successfully",
+          status: "success",
+          data: row,
+        });
       }
     });
   } catch (e) {

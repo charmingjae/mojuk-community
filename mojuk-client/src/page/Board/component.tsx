@@ -52,7 +52,7 @@ const BoardContent = ({ ...props }: any) => {
       ) : (
         <div className={styles.board_contents}>
           {contents.map((post) => (
-            <PreviewPost {...post} key={post.idx} />
+            <PreviewPost {...post} key={post.idx} postId={post.idx} />
           ))}
         </div>
       )}
