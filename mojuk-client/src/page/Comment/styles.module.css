@@ -1,0 +1,46 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
+.comment_wrapper{
+	border: 1px solid black;
+	height: 90%;
+	width: 30%;
+	display:flex;
+	flex-flow: column;
+	justify-content: space-between;
+}
+
+.comment_contents{
+	height: calc(100% - 150px);
+	background-color: gray;
+	overflow: auto;
+}
+
+.comment_write{
+	height: 150px;
+	width: 100%;
+	border-top: 1px solid black;
+	display:flex;
+	justify-content: center;
+	flex-flow: column;
+}
+
+.textarea_wrapper{
+	width: 100%;
+	height: 80%;
+	display: flex;
+	flex-flow: column;
+}
+
+.comment_textarea{
+	height: 100%;
+	resize:none;
+	border:none;
+	border-bottom: 1px solid lightgray;
+}
+
+.button_wrapper{
+	height: calc(100% - 80%);
+	background-color: gray;
+	display:flex;
+	
+}

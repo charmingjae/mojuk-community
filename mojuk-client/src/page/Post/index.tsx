@@ -7,6 +7,7 @@ import axios from "axios";
 import Button from "../../component/Button";
 import { PostFunction } from "../../function/post";
 import { Link } from "react-router-dom";
+import Comment from "../Comment";
 
 const Post = ({ ...props }: any) => {
   const { postId } = useParams();
@@ -27,23 +28,28 @@ const Post = ({ ...props }: any) => {
         <input type="hidden" />
       ) : (
         <div className={styles.post_wrapper}>
-          <PostComponent.PostWrapper {...props} />
-          {/* Edit or Delete */}
-          {/* postId에 대한 게시글 정보 가져와서 비교 후  session과 같으면 Edit / Delete Button 표시*/}
-          {publisher == props.session ? (
-            <div className={styles.post_edit}>
-              <Link to={`/edit/${postId}`}>
-                <Button className={btnStyles.button_edit} content="Edit" />
-              </Link>
-              <Button
-                onClick={() => PostFunction.deletePost(postId, publisher)}
-                className={btnStyles.button_delete}
-                content="Delete"
-              />
-            </div>
-          ) : (
-            <div>None</div>
-          )}
+          <div className={styles.post_area}>
+            <PostComponent.PostWrapper {...props} />
+            {/* Edit or Delete */}
+            {/* postId에 대한 게시글 정보 가져와서 비교 후  session과 같으면 Edit / Delete Button 표시*/}
+            {publisher == props.session ? (
+              <>
+                <div className={styles.post_edit}>
+                  <Link to={`/edit/${postId}`}>
+                    <Button className={btnStyles.button_edit} content="Edit" />
+                  </Link>
+                  <Button
+                    onClick={() => PostFunction.deletePost(postId, publisher)}
+                    className={btnStyles.button_delete}
+                    content="Delete"
+                  />
+                </div>
+              </>
+            ) : (
+              <div>None</div>
+            )}
+          </div>
+          <Comment {...props} />
         </div>
       )}
     </>
