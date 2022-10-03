@@ -1,17 +1,16 @@
 import React, { useRef } from "react";
-import { useParams } from "react-router";
 import BoardSelectBox from "../../component/BoardSelectBox";
 import Input from "../../component/Input";
 import styles from "./styles.module.css";
 import { Editor } from "@toast-ui/react-editor";
 import "@toast-ui/editor/dist/toastui-editor.css";
+import Button from "../../component/Button";
+import btnStyles from "../../component/Button/styles.module.css";
 
-const WriteContentsHeader = ({ ...props }: any) => {
-  const { boardType } = useParams();
-
+const EditContentsHeader = ({ ...props }: any) => {
   const BoardOption = {
     id: "boardType",
-    defaultValue: boardType,
+    defaultValue: props.category,
     item: [
       {
         value: "free",
@@ -25,14 +24,15 @@ const WriteContentsHeader = ({ ...props }: any) => {
   };
 
   return (
-    <div className={styles.write_contents_header}>
-      <div className={styles.write_contents_selectbox}>
-        <BoardSelectBox {...BoardOption} />
+    <div className={styles.edit_header}>
+      <div className={styles.edit_selectBox}>
+        {/* <BoardSelectBox {...BoardOption} /> */}
       </div>
-      <div className={styles.write_contents_theme}>
+      <div className={styles.edit_theme}>
         <Input
-          className={styles.write_theme_input}
+          className={styles.edit_theme_input}
           name="theme"
+          value={props.contents.theme}
           onChange={props.onChange}
         />
       </div>
@@ -40,16 +40,15 @@ const WriteContentsHeader = ({ ...props }: any) => {
   );
 };
 
-const WriteContentsBody = ({ ...props }: any) => {
+const EditContentsBody = ({ ...props }: any) => {
   const editorRef = useRef<Editor>();
   const onChange = () => {
-    console.log(editorRef.current.getInstance());
     const data = editorRef.current.getInstance().getHTML();
-    props.onChange(data);
+    props.onContentsChange(data);
   };
 
   return (
-    <div className={styles.write_contents_body}>
+    <div className={styles.edit_body}>
       <Editor
         ref={editorRef}
         placeholder="내용을 입력해주세요."
@@ -64,14 +63,25 @@ const WriteContentsBody = ({ ...props }: any) => {
           ["table", "image", "link"],
           ["code", "codeblock"],
         ]}
+        initialValue={props.contents.contents}
         onChange={onChange}
       ></Editor>
     </div>
   );
 };
 
-const WriteContentsWrapper = ({ ...props }: any) => {
-  return <div className={styles.write_contents_wrapper}>{props.children}</div>;
+const EditWrapper = ({ ...props }: any) => {
+  return (
+    <div className={styles.edit_content_wrapper}>
+      <EditContentsHeader {...props} />
+      <EditContentsBody {...props} />
+      <Button
+        className={btnStyles.button_basic_black}
+        content="수정"
+        onClick={props.onSubmit}
+      />
+    </div>
+  );
 };
 
-export { WriteContentsWrapper, WriteContentsHeader, WriteContentsBody };
+export const EditComponent = { EditWrapper };

@@ -9,6 +9,7 @@ import Footer from "../../component/Footer";
 import Board from "../../page/Board";
 import WritePage from "../../page/Write";
 import Post from "../../page/Post";
+import Edit from "../../page/Edit";
 
 const Component = () => {
   const [userSession, setUserSession] = useState("");
@@ -41,6 +42,7 @@ const Component = () => {
           element={<WritePage session={userSession} />}
         />
         <Route path="/post/:postId" element={<Post session={userSession} />} />
+        <Route path="/edit/:postId" element={<Edit session={userSession} />} />
       </Routes>
       <Footer />
     </div>
