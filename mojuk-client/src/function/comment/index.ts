@@ -18,6 +18,7 @@ const registerComment = async (postID: any, comment: any, userID: any) => {
 
 const getComment = async (
   postID: any,
+  comment: any,
   setComment: React.Dispatch<React.SetStateAction<any[]>>,
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
@@ -25,6 +26,8 @@ const getComment = async (
     .post("http://localhost:8888/api/comment/get", { postID: postID })
     .then((response) => {
       setComment(response.data.data);
+    })
+    .then(() => {
       setLoading(false);
     });
 };

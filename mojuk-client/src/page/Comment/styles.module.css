@@ -4,6 +4,7 @@
 	border: 1px solid black;
 	height: 90%;
 	width: 30%;
+	max-width: 350px;
 	display:flex;
 	flex-flow: column;
 	justify-content: space-between;
@@ -11,6 +12,7 @@
 
 .comment_contents{
 	height: calc(100% - 150px);
+	width: 100%;
 	background-color: gray;
 	overflow: auto;
 }
@@ -42,5 +44,4 @@
 	height: calc(100% - 80%);
 	background-color: gray;
 	display:flex;
-	
 }

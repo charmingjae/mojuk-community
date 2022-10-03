@@ -12,14 +12,21 @@ const CommentContents = ({ ...props }: any) => {
   const { postId } = useParams();
 
   useEffect(() => {
-    CommentFunction.getComment(postId, setComment, setLoading);
-    console.log("getcomment : ", comment);
+    setLoading(true);
+    // setTimeout(() => {
+    //   CommentFunction.getComment(postId, comment, setComment, setLoading);
+    // }, 1000);
+    CommentFunction.getComment(postId, comment, setComment, setLoading);
   }, [props.swtch]);
 
   return (
     <>
       {loading ? (
-        <input type="hidden" />
+        <div className={styles.comment_contents}>
+          {comment.map((obj) => (
+            <CommentChunk key={obj.idx} {...obj} />
+          ))}
+        </div>
       ) : (
         <div className={styles.comment_contents}>
           {comment.map((obj) => (

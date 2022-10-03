@@ -10,8 +10,9 @@ const Comment = ({ ...props }: any) => {
   const [comment, setComment] = useState("");
 
   const onSubmit = () => {
-    CommentFunction.registerComment(postId, comment, props.session);
-    setSwtch(!swtch);
+    CommentFunction.registerComment(postId, comment, props.session).then(() => {
+      setSwtch(!swtch);
+    });
   };
 
   return (
