@@ -33,6 +33,7 @@ const getPost = async (
           status: "success",
           data: row[0],
         });
+        conn.end();
       }
     });
   } catch (e) {
@@ -59,6 +60,7 @@ const deletePost = async (
           res
             .status(200)
             .send({ message: "Delete post successfully", status: "success" });
+          conn.end();
         }
       }
     );
@@ -76,7 +78,6 @@ const updatePost = async (
     let query =
       "UPDATE board SET theme=?, contents=? WHERE idx=? AND publisher=?";
     const conn = await mysql.createConnection(dbProperty);
-    console.log(req.body);
     conn.query(
       query,
       [
@@ -96,11 +97,11 @@ const updatePost = async (
           res
             .status(200)
             .send({ message: "Update post successfully", status: "success" });
+          conn.end();
         }
       }
     );
   } catch (e) {
-    console.log("ERRRRRRR!!!!!!!!!!!!!");
     res.status(200).send({ message: "Failed update post", status: "failed" });
   }
 };

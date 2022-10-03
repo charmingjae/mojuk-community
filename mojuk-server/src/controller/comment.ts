@@ -11,7 +11,6 @@ const register = async (
   res: express.Response,
   next: express.NextFunction
 ) => {
-  console.log(req.body);
   try {
     let query = "INSERT INTO comment(writer, postID, contents) VALUES(?, ?, ?)";
     const conn = await mysql.createConnection(dbProperty);
@@ -30,6 +29,7 @@ const register = async (
             message: "Register comment successfully",
             status: "success",
           });
+          conn.end();
         }
       }
     );
@@ -57,12 +57,12 @@ const get = async (
           .send({ message: "Failed get comment", status: "failed" });
         throw err;
       } else {
-        console.log(row);
         res.status(200).send({
           message: "Get comment successfully",
           status: "success",
           data: row,
         });
+        conn.end();
       }
     });
   } catch (e) {

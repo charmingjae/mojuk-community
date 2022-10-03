@@ -25,6 +25,7 @@ const postContent = async (
           res
             .status(200)
             .send({ message: "Post contents Successfully", status: "success" });
+          conn.end();
         }
       }
     );
@@ -54,12 +55,12 @@ const getContent = async (
           status: "success",
           data: row,
         });
+        conn.end();
       }
     });
   } catch (e) {
     res.status(200).send({ message: "Failed get contents", status: "failed" });
   }
-  console.log(req.query.boardType);
 };
 
 export const BoardController = { postContent, getContent };
