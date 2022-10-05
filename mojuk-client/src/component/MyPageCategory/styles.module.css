@@ -1,0 +1,15 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
+.mypage_category{
+	height: 100%;
+	width: 100%;
+	font-family: "pret-bold";
+	font-size: large;
+	background-color: white;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	cursor:pointer;
+}

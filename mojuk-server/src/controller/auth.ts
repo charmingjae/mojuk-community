@@ -67,6 +67,8 @@ const register = async (
   // Request info
   const userID = req.body.userID;
   const userPW = req.body.userPW;
+  const userGit = req.body.userGit;
+
   // Query String
   let query = "SELECT COUNT(*) as cnt FROM user WHERE userID=?";
   // Database Connection
@@ -82,10 +84,10 @@ const register = async (
       conn.end();
     } else {
       createHashedPassword(userPW).then((result) => {
-        const query = "INSERT INTO user VALUES(?,?,?)";
+        const query = "INSERT INTO user VALUES(?,?,?,?)";
         conn.query(
           query,
-          [userID, result.hashedPassword, result.salt],
+          [userID, result.hashedPassword, userGit, result.salt],
           (err: Error, row: any) => {
             if (err) {
               conn.end();

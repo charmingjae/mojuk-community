@@ -44,7 +44,7 @@
 	font-size: x-large;
 	cursor: pointer;
 	width: 52%;
-	height: 13%;
+	height: 50px;
 }
 
 .button_edit{
@@ -80,4 +80,26 @@
 	cursor: pointer;
 	width: 100%;
 	height: 100%;
+}
+
+.button_logout{
+	background-color: #CC344E;
+	border: 1px solid #CC344E;
+	color: white;
+	font-family: 'pret-semibold';
+	font-size: medium;
+	cursor: pointer;
+	height: 100%;
+	margin-top: 1%;
+}
+
+.button_modify {
+	font-family: 'pret-semibold';
+	background-color: #012D7F;
+	border: 1px solid #012D7F;
+	color: white;
+	font-size: medium;
+	cursor: pointer;
+	width: 100%;
+	height: 50%;
 }

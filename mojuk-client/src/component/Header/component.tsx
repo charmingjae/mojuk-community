@@ -19,7 +19,7 @@ const InfoArea = ({ ...props }: any) => {
   if (props.loggedIn.length !== 0 && props.loggedin !== "") {
     return (
       <div className={styles.info_area_class}>
-        <Link to="/">
+        <Link to={`/mypage/${props.loggedIn}`}>
           <Button
             className={buttonStyles.button_basic}
             content={props.loggedIn}

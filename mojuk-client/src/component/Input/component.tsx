@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./styles.module.css";
 
 const Component = ({ ...props }: any) => {
   return (
@@ -8,6 +9,7 @@ const Component = ({ ...props }: any) => {
       type={props.type}
       name={props.name}
       value={props.value}
+      placeholder={props.placeholder}
     ></input>
   );
 };

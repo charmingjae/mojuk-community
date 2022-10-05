@@ -31,8 +31,13 @@ const saveTokenInCookie = (param: any) => {
   setCookie("access", param, 60); // expire date 10 minute
 };
 
+const deleteCookie = (key: any) => {
+  setCookie(key, "", 0);
+};
+
 export const TokenFunction = {
   saveTokenInLocalStorage,
   saveTokenInCookie,
   getCookie,
+  deleteCookie,
 };

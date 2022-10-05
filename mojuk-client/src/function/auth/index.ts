@@ -40,12 +40,13 @@ const SignInFunction = async (userID: any, userPW: any) => {
     });
 };
 
-const SignUpFunction = async (userID: any, userPW: any) => {
+const SignUpFunction = async (userID: any, userPW: any, userGit: String) => {
   if (isValidIDInput(userID) && isValidPWInput(userPW)) {
     await axios
       .post("http://localhost:8888/api/auth/register", {
         userID: userID,
         userPW: userPW,
+        userGit: userGit,
       })
       .then((response) => {
         if (response.status == 201) {
@@ -80,8 +81,20 @@ const CheckLoginedFunction = async (accessToken: any, refreshToken: any) => {
   return result;
 };
 
+const LogoutFunction = async (session: any) => {
+  if (session) {
+    await window.localStorage.removeItem("refresh");
+    await TokenFunction.deleteCookie("access");
+    window.location.replace("/");
+  } else {
+    alert("Session is already expired");
+    window.location.replace("/");
+  }
+};
+
 export const AuthFunction = {
   SignInFunction,
   SignUpFunction,
   CheckLoginedFunction,
+  LogoutFunction,
 };
