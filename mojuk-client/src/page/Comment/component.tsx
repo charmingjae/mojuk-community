@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "../../component/Button";
 import styles from "./styles.module.css";
 import btnStyles from "../../component/Button/styles.module.css";
@@ -46,6 +46,7 @@ const CommentWrite = ({ ...props }: any) => {
 
   const onSubmit = () => {
     props.onSubmit();
+    props.setComment("");
   };
 
   return (
@@ -54,6 +55,8 @@ const CommentWrite = ({ ...props }: any) => {
         <textarea
           className={styles.comment_textarea}
           onChange={fnOnChange}
+          value={props.comment}
+          placeholder="이 글에 한 마디!"
         ></textarea>
       </div>
       <div className={styles.button_wrapper}>

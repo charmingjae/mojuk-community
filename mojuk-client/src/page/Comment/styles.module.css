@@ -38,6 +38,7 @@
 	resize:none;
 	border:none;
 	border-bottom: 1px solid lightgray;
+	padding: 3%;
 }
 
 .button_wrapper{

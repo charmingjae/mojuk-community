@@ -21,6 +21,7 @@ const Comment = ({ ...props }: any) => {
       <CommentComponent.CommentWrite
         onSubmit={onSubmit}
         setComment={setComment}
+        comment={comment}
         {...props}
       />
     </div>
