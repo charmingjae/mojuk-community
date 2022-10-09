@@ -19,6 +19,15 @@
 	align-items: center;
 }
 
+.phone{
+	grid-area: phone;
+	border-bottom: 1px solid lightgray;
+	display:grid;
+	grid-template-columns: 1fr 2fr;
+	justify-content: center;
+	align-items: center;
+}
+
 .label_wrapper{
 	display:flex;
 	justify-content: center;
@@ -47,7 +56,7 @@
 	grid-template-areas:
 	". . . . . . . . ."
 	". github github github github github github github ."
-	". . . . . . . . ."
+	". phone phone phone phone phone phone phone ."
 	". . . . . . . . ."
 	". . . . . . . . ."
 	". . . . . . . . ."

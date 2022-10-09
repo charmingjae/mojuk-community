@@ -5,6 +5,7 @@ import btnStyles from "../../component/Button/styles.module.css";
 import { AuthFunction } from "../../function/auth";
 import MyPageCategory from "../../component/MyPageCategory";
 import Basic from "./Page/Basic";
+import Career from "./Page/Career";
 
 const MPInfo = ({ ...props }: any) => {
   return <div className={styles.mypage_info}>{props.session}</div>;
@@ -62,11 +63,15 @@ const MyPageContent = ({ menuKey, ...props }: any) => {
     case "basic":
       return (
         <div className={styles.mypage_content}>
-          <Basic />
+          <Basic {...props} />
         </div>
       );
     case "career":
-      return <div className={styles.mypage_content}>2</div>;
+      return (
+        <div className={styles.mypage_content}>
+          <Career {...props} />
+        </div>
+      );
     default:
       return <div className={styles.mypage_content}>1</div>;
   }

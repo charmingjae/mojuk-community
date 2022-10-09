@@ -40,13 +40,19 @@ const SignInFunction = async (userID: any, userPW: any) => {
     });
 };
 
-const SignUpFunction = async (userID: any, userPW: any, userGit: String) => {
+const SignUpFunction = async (
+  userID: any,
+  userPW: any,
+  userGit: String,
+  userPhone: String
+) => {
   if (isValidIDInput(userID) && isValidPWInput(userPW)) {
     await axios
       .post("http://localhost:8888/api/auth/register", {
         userID: userID,
         userPW: userPW,
         userGit: userGit,
+        userPhone: userPhone,
       })
       .then((response) => {
         if (response.status == 201) {

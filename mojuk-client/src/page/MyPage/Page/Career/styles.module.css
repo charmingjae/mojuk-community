@@ -1,0 +1,8 @@
+@import url("../../../../../public/assets/fonts/fonts.css");
+
+.career_wrapper {
+	height:100%;
+	display:grid;
+	background-color: white;
+	overflow: auto;
+}

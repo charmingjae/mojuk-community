@@ -11,6 +11,7 @@ const Register = () => {
   const [userID, setUserID] = useState("");
   const [userPW, setUserPW] = useState("");
   const [userGit, setUserGit] = useState("");
+  const [userPhone, setUserPhone] = useState("");
 
   const handleIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserID(event.target.value);
@@ -22,6 +23,10 @@ const Register = () => {
 
   const handleGitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserGit(event.target.value);
+  };
+
+  const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserPhone(event.target.value);
   };
 
   return (
@@ -43,10 +48,18 @@ const Register = () => {
         className={inputStyles.input_basic}
         onChange={handleGitChange}
         type="text"
-        placeholder="gitHub"
+        placeholder="gitHub ex)charmingjae"
+      />
+      <Input
+        className={inputStyles.input_basic}
+        onChange={handlePhoneChange}
+        type="text"
+        placeholder="Phone number"
       />
       <Button
-        onClick={() => AuthFunction.SignUpFunction(userID, userPW, userGit)}
+        onClick={() =>
+          AuthFunction.SignUpFunction(userID, userPW, userGit, userPhone)
+        }
         className={buttonStyles.button_signup}
         content="Sign Up"
       />
