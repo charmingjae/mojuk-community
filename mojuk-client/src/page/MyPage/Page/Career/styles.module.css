@@ -1,8 +1,44 @@
 @import url("../../../../../public/assets/fonts/fonts.css");
 
 .career_wrapper {
+	font-family: "pret-light";
 	height:100%;
 	display:grid;
 	background-color: white;
 	overflow: auto;
 }
+
+.career_paper_wrapper{
+	background-color: white;
+	display: grid;
+}
+
+/* Paper Wrapper */
+.paper_wrapper{
+	height: 100%;
+	width: 90%;
+	background-color: white;
+	margin: 0 auto;
+}
+
+.paper_header{
+	width: 100%;
+	height: 10%;
+	background-color: white;
+	display:flex;
+	align-items: center;
+	font-family: "pret-medium";
+}
+
+.paper_info{
+	width: 100%;
+	height: 50px;
+	background-color: white;
+	border-bottom: 1px solid lightgray;
+	display:grid;
+	grid-template-columns: 1fr 9fr 1fr;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Award Wrapper */
