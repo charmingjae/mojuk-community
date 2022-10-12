@@ -14,4 +14,12 @@ const getUserInfo = async (
   console.log("request : ", req.body);
 };
 
-export const DataController = { getUserInfo };
+const getUserPaper = async (
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) => {
+  console.log("request : ", req.body);
+};
+
+export const DataController = { getUserInfo, getUserPaper };

@@ -6,10 +6,9 @@ import styles from "./styles.module.css";
 const Basic = ({ ...props }: any) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    console.log(props.session);
     DataFunction.getUserInfo(props.session).then((response) => {
       console.log(response);
-    });
+    }); // ??
   }, []);
 
   return (

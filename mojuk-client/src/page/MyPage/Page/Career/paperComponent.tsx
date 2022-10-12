@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./styles.module.css";
 
 const PaperHeader = ({ ...props }: any) => {
@@ -14,6 +14,8 @@ const PaperInfo = ({ ...props }: any) => {
 };
 
 const PaperWrapper = ({ ...props }: any) => {
+  useEffect(() => {}, []);
+
   return (
     <div className={styles.paper_wrapper}>
       <PaperHeader {...props} />
