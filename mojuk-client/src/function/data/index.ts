@@ -6,7 +6,7 @@ const getUserInfo = async (userID: String) => {
       userID: userID,
     })
     .then((response) => {
-      console.log(response);
+      console.log(response); // Fix needed
     });
 };
 
