@@ -1,12 +1,11 @@
 .modal_wrapper{
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.8);
 	width: 100%;
 	height: 100vh;
 	z-index: 10;
 	position:fixed;
 	top: 0;
 	left: 0;
-	/* opacity: 70%; */
 	display:flex;
 	justify-content: center;
 	align-items: center;
@@ -14,7 +13,85 @@
 
 .modal_component_wrapper{
 	background-color: white;
-	width: 70%;
+	width: 50%;
 	height: 50%;
-	opacity: 100%;
+	display:grid;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-areas: "."
+						"theme"
+						"society"
+						"date"
+						"setter"
+						".";
+}
+
+
+/* input */
+
+.wrapper_input_paper_theme{
+	grid-area: theme;
+	width: 100%;
+	background-color: white;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper_input_paper_society {
+	grid-area: society;
+	width: 100%;
+	background-color: white;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper_input_paper_date {
+	grid-area: date;
+	display:grid;
+	grid-template-columns: 1fr 1.8fr 1.8fr 1.8fr 1fr;
+	grid-template-areas: ". year month day .";
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper_paper_date_year{
+	grid-area: year;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+.wrapper_paper_date_month{
+	grid-area: month;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+.wrapper_paper_date_day{
+	grid-area: day;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.wrapper_paper_button{
+	grid-area: setter;
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	grid-template-columns: 1fr 5fr 1fr;
+	grid-template-areas: ". component .";
+	background-color: white;
+}
+
+.wrapper_paper_button_component{
+	width: 100%;
+	height: 50%;
+	grid-area: component;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
 }

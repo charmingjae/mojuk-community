@@ -8,6 +8,24 @@
 	padding-left: 2%;
 }
 
+.input_common {
+	width: 70%;
+	height: 70%;
+	font-family: "pret-light";
+	font-size: large;
+	border: 1px solid black;
+	padding-left: 2%;
+}
+
+.input_date{
+	height: 80%;
+	width: 90%;
+	font-family: "pret-light";
+	font-size: large;
+	border: 1px solid black;
+	padding-left: 5%;
+}
+
 .input_id{
 	width: 50%;
 	height: 40px;
