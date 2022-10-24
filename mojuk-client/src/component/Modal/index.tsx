@@ -15,25 +15,54 @@ const Modal = ({ ...props }: any) => {
         }}
       >
         <div className={styles.wrapper_input_paper_theme}>
-          <Input className={inputStyles.input_common} placeholder="논문 제목" />
+          <Input
+            className={inputStyles.input_common}
+            placeholder="논문 제목"
+            name="theme"
+            onChange={props.onChange}
+          />
         </div>
         <div className={styles.wrapper_input_paper_society}>
-          <Input className={inputStyles.input_common} placeholder="학회 명" />
+          <Input
+            className={inputStyles.input_common}
+            placeholder="학회 명"
+            name="society"
+            onChange={props.onChange}
+          />
         </div>
         <div className={styles.wrapper_input_paper_date}>
           <div className={styles.wrapper_paper_date_year}>
-            <Input className={inputStyles.input_date} placeholder="YYYY" />
+            <Input
+              className={inputStyles.input_date}
+              placeholder="YYYY"
+              name="year"
+              onChange={props.onChange}
+            />
           </div>
           <div className={styles.wrapper_paper_date_month}>
-            <Input className={inputStyles.input_date} placeholder="MM" />
+            <Input
+              className={inputStyles.input_date}
+              placeholder="MM"
+              name="month"
+              onChange={props.onChange}
+            />
           </div>
           <div className={styles.wrapper_paper_date_day}>
-            <Input className={inputStyles.input_date} placeholder="DD" />
+            <Input
+              className={inputStyles.input_date}
+              placeholder="DD"
+              name="day"
+              onChange={props.onChange}
+            />
           </div>
         </div>
         <div className={styles.wrapper_paper_button}>
           <div className={styles.wrapper_paper_button_component}>
-            <Button className={btnStyles.button_primary} content="등록" />
+            <Button
+              className={btnStyles.button_primary}
+              content="등록"
+              onClick={props.onClick}
+            />
             <Button className={btnStyles.button_paper_edit} content="취소" />
           </div>
         </div>

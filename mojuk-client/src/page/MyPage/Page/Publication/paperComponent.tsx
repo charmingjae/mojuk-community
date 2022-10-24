@@ -6,8 +6,30 @@ import Modal from "../../../../component/Modal";
 
 const PaperHeader = ({ ...props }: any) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [editActivate, setEditActivate] = useState(false);
+  const [paperValue, setPaperValue] = useState({
+    theme: "",
+    society: "",
+    year: "",
+    month: "",
+    day: "",
+  });
+
+  const testOnClick = () => {
+    console.log("log : ", paperValue);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setPaperValue({ ...paperValue, [name]: value });
+  };
+
   const modalClose = () => {
     setModalOpen(!modalOpen);
+  };
+
+  const activateEdit = () => {
+    setEditActivate(!editActivate);
   };
 
   return (
@@ -19,8 +41,18 @@ const PaperHeader = ({ ...props }: any) => {
           content="Add"
           onClick={modalClose}
         />
-        <Button className={btnStyles.button_paper_edit} content="Edit" />
-        {modalOpen && <Modal modalClose={modalClose} />}
+        <Button
+          className={btnStyles.button_paper_edit}
+          content="Edit"
+          onClick={activateEdit}
+        />
+        {modalOpen && (
+          <Modal
+            modalClose={modalClose}
+            onChange={handleChange}
+            onClick={testOnClick}
+          />
+        )}
       </div>
     </div>
   );
