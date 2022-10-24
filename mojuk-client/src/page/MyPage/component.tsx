@@ -5,7 +5,7 @@ import btnStyles from "../../component/Button/styles.module.css";
 import { AuthFunction } from "../../function/auth";
 import MyPageCategory from "../../component/MyPageCategory";
 import Basic from "./Page/Basic";
-import Career from "./Page/Career";
+import Publication from "./Page/Publication";
 
 const MPInfo = ({ ...props }: any) => {
   return <div className={styles.mypage_info}>{props.session}</div>;
@@ -27,7 +27,7 @@ const MPHeader = ({ ...props }: any) => {
 const MPMenu = ({ setMenuKey, ...props }: any) => {
   const menu = [
     { menuName: "기본", menuKey: "basic" },
-    { menuName: "이력", menuKey: "career" },
+    { menuName: "논문", menuKey: "publication" },
   ];
 
   const onClick = (menuKey: any) => {
@@ -66,10 +66,10 @@ const MyPageContent = ({ menuKey, ...props }: any) => {
           <Basic {...props} />
         </div>
       );
-    case "career":
+    case "publication":
       return (
         <div className={styles.mypage_content}>
-          <Career {...props} />
+          <Publication {...props} />
         </div>
       );
     default:

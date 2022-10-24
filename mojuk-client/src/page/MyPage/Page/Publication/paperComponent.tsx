@@ -1,8 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import Button from "../../../../component/Button";
 import styles from "./styles.module.css";
+import btnStyles from "../../../../component/Button/styles.module.css";
 
 const PaperHeader = ({ ...props }: any) => {
-  return <div className={styles.paper_header}>&gt;Paper</div>;
+  const [modalOpen, setModalOpen] = useState(false);
+  const modalClose = () => {
+    setModalOpen(!modalOpen);
+  };
+
+  return (
+    <div className={styles.paper_header}>
+      <div>&gt;Paper</div>
+      <div className={styles.paper_control}>
+        <Button
+          className={btnStyles.button_primary}
+          content="Add"
+          onClick={modalClose}
+        />
+        <Button className={btnStyles.button_paper_edit} content="Edit" />
+        {modalOpen && <div>Test</div>}
+      </div>
+    </div>
+  );
 };
 const PaperInfo = ({ ...props }: any) => {
   return (

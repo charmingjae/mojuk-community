@@ -72,6 +72,28 @@
 	margin-top: 1%;
 }
 
+.button_primary {
+	background-color: #012D7F;
+	border: 1px solid #012D7F;
+	color: white;
+	font-size: medium;
+	cursor: pointer;
+	width: 20%;
+	height: 100%;
+	margin-right: 3%;
+}
+
+.button_paper_edit {
+	background-color: #CC344E;
+	border : 1px solid #CC344E;
+	color: white;
+	font-size: medium;
+	cursor: pointer;
+	width: 20%;
+	height: 100%;
+	margin-right: 2%;
+}
+
 .button_comment {
 	background-color: #012D7F;
 	border: 1px solid #012D7F;

@@ -1,6 +1,6 @@
 @import url("../../../../../public/assets/fonts/fonts.css");
 
-.career_wrapper {
+.publication_wrapper {
 	font-family: "pret-light";
 	height:100%;
 	display:grid;
@@ -8,7 +8,7 @@
 	overflow: auto;
 }
 
-.career_paper_wrapper{
+.publication_paper_wrapper{
 	background-color: white;
 	display: grid;
 }
@@ -25,9 +25,15 @@
 	width: 100%;
 	height: 10%;
 	background-color: white;
-	display:flex;
+	display:grid;
+	grid-template-columns: 1fr 1fr;
 	align-items: center;
 	font-family: "pret-medium";
+}
+
+.paper_control{
+	display:flex;
+	justify-content: end;
 }
 
 .paper_info{
