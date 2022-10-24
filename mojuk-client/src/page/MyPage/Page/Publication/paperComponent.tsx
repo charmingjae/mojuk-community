@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from "../../../../component/Button";
 import styles from "./styles.module.css";
 import btnStyles from "../../../../component/Button/styles.module.css";
+import Modal from "../../../../component/Modal";
 
 const PaperHeader = ({ ...props }: any) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -19,7 +20,7 @@ const PaperHeader = ({ ...props }: any) => {
           onClick={modalClose}
         />
         <Button className={btnStyles.button_paper_edit} content="Edit" />
-        {modalOpen && <div>Test</div>}
+        {modalOpen && <Modal modalClose={modalClose} />}
       </div>
     </div>
   );
