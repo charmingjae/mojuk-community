@@ -96,7 +96,7 @@ const PaperInfo = ({ ...props }: any) => {
 
   return (
     <div className={styles.paper_info}>
-      <div>{props.idx}</div>
+      <div>[{props.idx}]</div>
       <div>
         "{props.subject}", <i>{props.society}</i>, {publishDate}
       </div>
