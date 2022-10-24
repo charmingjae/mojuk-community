@@ -63,7 +63,11 @@ const Modal = ({ ...props }: any) => {
               content="등록"
               onClick={props.onClick}
             />
-            <Button className={btnStyles.button_paper_edit} content="취소" />
+            <Button
+              className={btnStyles.button_paper_edit}
+              content="취소"
+              onClick={props.modalClose}
+            />
           </div>
         </div>
       </div>
