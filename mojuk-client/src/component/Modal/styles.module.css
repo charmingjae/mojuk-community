@@ -17,12 +17,13 @@
 	height: 50%;
 	display:grid;
 	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-	grid-template-areas: "."
+	grid-template-areas:
 						"theme"
 						"society"
 						"date"
-						"setter"
-						".";
+						"member_search"
+						"member_list"
+						"setter";
 }
 
 
@@ -75,6 +76,14 @@
 	justify-content: center;
 	align-items: center;
 	height: 100%;
+}
+
+.wrapper_paper_member_search{
+	grid-area: member_search;
+}
+
+.wrapper_paper_member_list{
+	grid-area: member_list;
 }
 
 .wrapper_paper_button{

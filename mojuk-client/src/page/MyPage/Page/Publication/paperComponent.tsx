@@ -17,6 +17,7 @@ const PaperHeader = ({ ...props }: any) => {
     year: "",
     month: "",
     day: "",
+    member: [],
   });
 
   const doSubmit = () => {
@@ -48,6 +49,7 @@ const PaperHeader = ({ ...props }: any) => {
       year: "",
       month: "",
       day: "",
+      member: [],
     });
   };
 
