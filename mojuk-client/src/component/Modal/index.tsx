@@ -56,6 +56,9 @@ const Modal = ({ ...props }: any) => {
             />
           </div>
         </div>
+        <div className={styles.wrapper_paper_member_search}></div>
+        <div className={styles.wrapper_paper_member_list}></div>
+        <div className={styles.wrapper_paper_confirmed_member_list}></div>
         <div className={styles.wrapper_paper_button}>
           <div className={styles.wrapper_paper_button_component}>
             <Button

@@ -14,15 +14,18 @@
 .modal_component_wrapper{
 	background-color: white;
 	width: 50%;
-	height: 50%;
+	height: 70%;
 	display:grid;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 0.5fr repeat(8, 1fr) 0.1fr;
 	grid-template-areas:
+						"."
 						"theme"
 						"society"
 						"date"
 						"member_search"
 						"member_list"
+						"confirmed_member_list"
+						"."
 						"setter";
 }
 
@@ -80,10 +83,18 @@
 
 .wrapper_paper_member_search{
 	grid-area: member_search;
+	background-color: black;
 }
 
 .wrapper_paper_member_list{
 	grid-area: member_list;
+	background-color: gray;
+}
+
+.wrapper_paper_confirmed_member_list{
+	grid-area: confirmed_member_list;
+	background-color: lightgray;
+
 }
 
 .wrapper_paper_button{
