@@ -4,12 +4,38 @@ import styles from "./styles.module.css";
 import inputStyles from "../../component/Input/styles.module.css";
 import Button from "../Button";
 import btnStyles from "../../component/Button/styles.module.css";
+import { DataFunction } from "../../function/data";
 
 const Modal = ({ ...props }: any) => {
+  //   console.log("props : ", props);
   const [member, setMember] = useState("");
+  const [memberSearchList, setMemberSearchList] = useState([]);
+
   const handleMemberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setMember(value);
+  };
+
+  const searchMemberList = async () => {
+    setMemberSearchList([]);
+    await DataFunction.getUserInfoByName(member, setMemberSearchList);
+    setMember("");
+  };
+
+  const addConfirmedMember = (userInfo: any) => {
+    for (var i in props.memberList) {
+      if (props.memberList[i].userID === userInfo.userID) {
+        alert("이미 등록된 멤버입니다.");
+        return;
+      }
+    }
+    props.setMemberList([...props.memberList, userInfo]);
+  };
+
+  const removeConfirmedMember = (userInfo: any) => {
+    props.setMemberList(
+      props.memberList.filter((member) => member.userID !== userInfo.userID)
+    );
   };
 
   return (
@@ -68,17 +94,44 @@ const Modal = ({ ...props }: any) => {
             placeholder="Member Name"
             name="memberName"
             onChange={handleMemberChange}
+            value={member}
           />
-          <Button className={btnStyles.button_search_member} content="검색" />
+          <Button
+            className={btnStyles.button_search_member}
+            content="검색"
+            onClick={searchMemberList}
+          />
         </div>
         <div className={styles.wrapper_paper_member_list}>
           <div className={styles.box_member_list}>
-            {props.paperValue.member.length > 0
-              ? "있음"
-              : "등록된 공동 저자가 없음"}
+            {memberSearchList.length > 0
+              ? memberSearchList.map((data) => (
+                  <div
+                    className={styles.div_member_info}
+                    onClick={() => addConfirmedMember(data)}
+                    key={data.userID}
+                  >
+                    {data.userName} , {data.userID}
+                  </div>
+                ))
+              : ""}
           </div>
         </div>
-        <div className={styles.wrapper_paper_confirmed_member_list}></div>
+        <div className={styles.wrapper_paper_confirmed_member_list}>
+          <div className={styles.box_member_list}>
+            {props.memberList.length > 0
+              ? props.memberList.map((obj) => (
+                  <div
+                    className={styles.div_confirmed_info}
+                    onClick={() => removeConfirmedMember(obj)}
+                    key={obj.userID}
+                  >
+                    {obj.userName}, {obj.userID}
+                  </div>
+                ))
+              : ""}
+          </div>
+        </div>
         <div className={styles.wrapper_paper_button}>
           <div className={styles.wrapper_paper_button_component}>
             <Button

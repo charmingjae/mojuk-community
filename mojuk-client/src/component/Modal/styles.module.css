@@ -1,3 +1,5 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
 .modal_wrapper{
 	background-color: rgba(0, 0, 0, 0.8);
 	width: 100%;
@@ -9,6 +11,7 @@
 	display:flex;
 	justify-content: center;
 	align-items: center;
+	font-family: "pret-light";
 }
 
 .modal_component_wrapper{
@@ -94,19 +97,42 @@
 	background-color: white;
 	display:flex;
 	justify-content: center;
-	/* align-items: center; */
+}
+
+.div_member_info{
+	border-bottom: 1px solid lightgray;
+	background-color: white;
+	height:35px;
+	display: flex;
+	align-items: center;
+	padding-left: 2%;
+	cursor: pointer;
 }
 
 .box_member_list{
 	border: 1px solid black;
-	background-color: white;
+	background-color: #36454f;
 	width: 72%;
+	/* display:flex; */
+	/* justify-content: center; */
+	overflow: auto;
 }
 
 .wrapper_paper_confirmed_member_list{
 	grid-area: confirmed_member_list;
-	background-color: lightgray;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+}
 
+.div_confirmed_info{
+	border-bottom: 1px solid lightgray;
+	background-color: mediumspringgreen;
+	height:35px;
+	display: flex;
+	align-items: center;
+	padding-left: 2%;
+	cursor: pointer;
 }
 
 .wrapper_paper_button{

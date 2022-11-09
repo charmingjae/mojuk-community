@@ -17,8 +17,8 @@ const PaperHeader = ({ ...props }: any) => {
     year: "",
     month: "",
     day: "",
-    member: [],
   });
+  const [memberList, setMemberList] = useState([]);
 
   const doSubmit = () => {
     for (let i in paperValue) {
@@ -49,8 +49,8 @@ const PaperHeader = ({ ...props }: any) => {
       year: "",
       month: "",
       day: "",
-      member: [],
     });
+    setMemberList([]);
   };
 
   const activateEdit = () => {
@@ -79,6 +79,9 @@ const PaperHeader = ({ ...props }: any) => {
             setSwtch={props.setSwtch}
             swtch={props.swtch}
             paperValue={paperValue}
+            setPaperValue={setPaperValue}
+            memberList={memberList}
+            setMemberList={setMemberList}
           />
         )}
       </div>
