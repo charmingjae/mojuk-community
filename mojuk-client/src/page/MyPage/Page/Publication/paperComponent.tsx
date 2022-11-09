@@ -110,7 +110,6 @@ const PaperInfo = ({ ...props }: any) => {
       props.setDeleteActivate
     );
   };
-
   useEffect(() => {
     setPublishDate(
       props.publishDate.split("-")[1] +
