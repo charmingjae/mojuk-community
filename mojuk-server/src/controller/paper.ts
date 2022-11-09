@@ -13,14 +13,24 @@ const post = async (
   res: express.Response,
   next: express.NextFunction
 ) => {
+  const member = req.body.member;
   const publisher = req.body.data.publisher;
   const theme = req.body.data.theme;
   const society = req.body.data.society;
   const publishDate =
     req.body.data.year + "-" + req.body.data.month + "-" + req.body.data.day;
 
+  let member_query_list = [];
+  for (let i in member) {
+    member_query_list.push(member[i].userID);
+    member_query_list.push(theme);
+  }
   let query =
     "INSERT INTO paper(publisher, theme, society, publishDate) values(?, ?, ?, ?)";
+  let member_insert_query =
+    "INSERT INTO publish(publisher, paperName) values" +
+    "(?, ?), ".repeat(member.length - 1) +
+    "(?, ?)";
   const conn = await mysql.createConnection(dbProperty);
   conn.query(
     query,
@@ -30,10 +40,22 @@ const post = async (
         conn.end();
         throw err;
       } else {
-        conn.end();
-        res
-          .status(200)
-          .send({ message: "Register paper successfully", status: "success" });
+        conn.query(
+          member_insert_query,
+          member_query_list,
+          (err: any, row: any) => {
+            if (err) {
+              conn.end();
+              throw err;
+            } else {
+              conn.end();
+              res.status(200).send({
+                message: "Register paper successfully",
+                status: "success",
+              });
+            }
+          }
+        );
       }
     }
   );
@@ -44,7 +66,8 @@ const get = async (
   res: express.Response,
   next: express.NextFunction
 ) => {
-  let query = "SELECT * FROM paper WHERE publisher = ? ORDER BY idx DESC";
+  let query =
+    "SELECT * FROM paper WHERE theme IN (SELECT paperName FROM publish WHERE publisher = ?)";
   const conn = await mysql.createConnection(dbProperty);
   conn.query(query, [req.body.userId], (err: any, row: any) => {
     if (err) {

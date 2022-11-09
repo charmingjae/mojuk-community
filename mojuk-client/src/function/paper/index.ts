@@ -27,6 +27,7 @@ const transformDate = (param: any) => {
 
 const registerPaper = async (
   data: any,
+  memberData: any,
   modalClose: any,
   setSwtch: any,
   swtch: any
@@ -43,7 +44,10 @@ const registerPaper = async (
   transformDate(data);
 
   await axios
-    .post("http://localhost:8888/api/paper/post", { data: data })
+    .post("http://localhost:8888/api/paper/post", {
+      data: data,
+      member: memberData,
+    })
     .then((response) => {
       console.log(response);
       if (response.data.status === "success") {
@@ -62,7 +66,7 @@ const getPaper = async (userId: any, setPaperList: any, setLoading: any) => {
   await axios
     .post("http://localhost:8888/api/paper/get", { userId })
     .then((response) => {
-      console.log(response);
+      console.log("response : ", response);
       if (response.data.status === "success") {
         setPaperList(response.data.data);
       }

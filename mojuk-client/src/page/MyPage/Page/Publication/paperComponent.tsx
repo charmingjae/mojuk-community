@@ -29,10 +29,12 @@ const PaperHeader = ({ ...props }: any) => {
     }
     PaperFunction.registerPaper(
       paperValue,
+      memberList,
       modalClose,
       props.setSwtch,
       props.swtch
     );
+    setMemberList([]);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
