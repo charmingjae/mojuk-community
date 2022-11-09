@@ -78,6 +78,7 @@ const PaperHeader = ({ ...props }: any) => {
             onClick={doSubmit}
             setSwtch={props.setSwtch}
             swtch={props.swtch}
+            paperValue={paperValue}
           />
         )}
       </div>

@@ -26,6 +26,15 @@
 	padding-left: 5%;
 }
 
+.input_publish_member{
+	height: 70%;
+	width: 54%;
+	font-family: "pret-light";
+	font-size: large;
+	border: 1px solid black;
+	padding-left: 2%;
+}
+
 .input_id{
 	width: 50%;
 	height: 40px;

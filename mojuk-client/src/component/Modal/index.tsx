@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "../Input";
 import styles from "./styles.module.css";
 import inputStyles from "../../component/Input/styles.module.css";
@@ -6,6 +6,12 @@ import Button from "../Button";
 import btnStyles from "../../component/Button/styles.module.css";
 
 const Modal = ({ ...props }: any) => {
+  const [member, setMember] = useState("");
+  const handleMemberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setMember(value);
+  };
+
   return (
     <div className={styles.modal_wrapper} onClick={props.modalClose}>
       <div
@@ -56,8 +62,22 @@ const Modal = ({ ...props }: any) => {
             />
           </div>
         </div>
-        <div className={styles.wrapper_paper_member_search}></div>
-        <div className={styles.wrapper_paper_member_list}></div>
+        <div className={styles.wrapper_paper_member_search}>
+          <Input
+            className={inputStyles.input_publish_member}
+            placeholder="Member Name"
+            name="memberName"
+            onChange={handleMemberChange}
+          />
+          <Button className={btnStyles.button_search_member} content="검색" />
+        </div>
+        <div className={styles.wrapper_paper_member_list}>
+          <div className={styles.box_member_list}>
+            {props.paperValue.member.length > 0
+              ? "있음"
+              : "등록된 공동 저자가 없음"}
+          </div>
+        </div>
         <div className={styles.wrapper_paper_confirmed_member_list}></div>
         <div className={styles.wrapper_paper_button}>
           <div className={styles.wrapper_paper_button_component}>
