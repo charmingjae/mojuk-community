@@ -67,7 +67,7 @@ const get = async (
   next: express.NextFunction
 ) => {
   let query =
-    "SELECT * FROM paper WHERE theme IN (SELECT paperName FROM publish WHERE publisher = ?)";
+    "SELECT * FROM paper WHERE theme IN (SELECT paperName FROM publish WHERE publisher = ?) ORDER BY idx DESC";
   const conn = await mysql.createConnection(dbProperty);
   conn.query(query, [req.body.userId], (err: any, row: any) => {
     if (err) {
@@ -84,4 +84,31 @@ const get = async (
   });
 };
 
-export const PaperController = { post, get };
+const deleteMember = async (
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) => {
+  console.log("userID : ", req.body.userID);
+  console.log("paperName : ", req.body.paperName);
+  let query = "DELETE FROM publish WHERE publisher = ? and paperName = ?";
+  const conn = await mysql.createConnection(dbProperty);
+  conn.query(
+    query,
+    [req.body.userID, req.body.paperName],
+    (err: any, row: any) => {
+      if (err) {
+        conn.end();
+        throw err;
+      } else {
+        conn.end();
+        res.status(200).send({
+          message: "Delete paper list succeessfully",
+          status: "success",
+        });
+      }
+    }
+  );
+};
+
+export const PaperController = { post, get, deleteMember };

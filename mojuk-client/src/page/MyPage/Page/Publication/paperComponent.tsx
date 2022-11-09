@@ -56,7 +56,7 @@ const PaperHeader = ({ ...props }: any) => {
   };
 
   const activateEdit = () => {
-    setEditActivate(!editActivate);
+    props.setEditActivate(!props.editActivate);
   };
 
   return (
@@ -68,11 +68,19 @@ const PaperHeader = ({ ...props }: any) => {
           content="Add"
           onClick={modalClose}
         />
-        <Button
-          className={btnStyles.button_paper_edit}
-          content="Edit"
-          onClick={activateEdit}
-        />
+        {props.editActivate ? (
+          <Button
+            className={btnStyles.button_paper_edit}
+            content="Finish"
+            onClick={activateEdit}
+          />
+        ) : (
+          <Button
+            className={btnStyles.button_paper_edit}
+            content="Edit"
+            onClick={activateEdit}
+          />
+        )}
         {modalOpen && (
           <Modal
             modalClose={modalClose}
@@ -93,6 +101,16 @@ const PaperHeader = ({ ...props }: any) => {
 
 const PaperInfo = ({ ...props }: any) => {
   const [publishDate, setPublishDate] = useState("");
+  const { userId } = useParams();
+  const deleteMemberPaper = () => {
+    PaperFunction.deleteMemberPaper(
+      userId,
+      props.subject,
+      props.deleteActivate,
+      props.setDeleteActivate
+    );
+  };
+
   useEffect(() => {
     setPublishDate(
       props.publishDate.split("-")[1] +
@@ -108,6 +126,15 @@ const PaperInfo = ({ ...props }: any) => {
       <div>
         "{props.subject}", <i>{props.society}</i>, {publishDate}
       </div>
+      {props.editActivate ? (
+        <div>
+          <Button
+            className={btnStyles.button_paper_delete}
+            content="X"
+            onClick={deleteMemberPaper}
+          />
+        </div>
+      ) : null}
     </div>
   );
 };
@@ -117,40 +144,50 @@ const PaperWrapper = ({ ...props }: any) => {
   const { userId } = useParams();
   const [paperList, setPaperList] = useState([]);
   const [swtch, setSwtch] = useState(false);
+  const [editActivate, setEditActivate] = useState(false);
+  const [deleteActivate, setDeleteActivate] = useState(false);
+  let idx = 1;
 
   useEffect(() => {
     PaperFunction.getPaper(userId, setPaperList, setLoading);
-  }, [swtch]);
+  }, [swtch, editActivate, deleteActivate]);
 
   return (
     <div className={styles.paper_wrapper}>
-      <PaperHeader setSwtch={setSwtch} swtch={swtch} {...props} />
+      <PaperHeader
+        setSwtch={setSwtch}
+        swtch={swtch}
+        editActivate={editActivate}
+        setEditActivate={setEditActivate}
+        {...props}
+      />
       {loading
         ? paperList.map((item) => (
             <PaperInfo
               key={item.idx}
-              idx={item.idx}
+              idx={idx++}
               subject={item.theme}
               society={item.society}
               publishDate={item.publishDate}
+              editActivate={editActivate}
+              setDeleteActivate={setDeleteActivate}
+              deleteActivate={deleteActivate}
               {...props}
             />
           ))
         : paperList.map((item) => (
             <PaperInfo
               key={item.idx}
-              idx={item.idx}
+              idx={idx++}
               subject={item.theme}
               society={item.society}
               publishDate={item.publishDate}
+              editActivate={editActivate}
+              setDeleteActivate={setDeleteActivate}
+              deleteActivate={deleteActivate}
               {...props}
             />
           ))}
-      {/* <PaperInfo idx="5" subject="제목5" {...props} />
-      <PaperInfo idx="4" subject="제목4" {...props} />
-      <PaperInfo idx="3" subject="제목3" {...props} />
-      <PaperInfo idx="2" subject="제목2" {...props} />
-      <PaperInfo idx="1" subject="제목1" {...props} /> */}
     </div>
   );
 };

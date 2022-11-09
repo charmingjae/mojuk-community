@@ -66,7 +66,6 @@ const getPaper = async (userId: any, setPaperList: any, setLoading: any) => {
   await axios
     .post("http://localhost:8888/api/paper/get", { userId })
     .then((response) => {
-      console.log("response : ", response);
       if (response.data.status === "success") {
         setPaperList(response.data.data);
       }
@@ -76,4 +75,23 @@ const getPaper = async (userId: any, setPaperList: any, setLoading: any) => {
     });
 };
 
-export const PaperFunction = { registerPaper, getPaper };
+const deleteMemberPaper = async (
+  userID: any,
+  paperName: any,
+  deleteActivate: any,
+  setDeleteActivate: any
+) => {
+  await axios
+    .post("http://localhost:8888/api/paper/deleteMember", {
+      userID: userID,
+      paperName: paperName,
+    })
+    .then((response) => {
+      if (response.data.status === "success") {
+        alert("삭제 완료.");
+        setDeleteActivate(!deleteActivate);
+      }
+    });
+};
+
+export const PaperFunction = { registerPaper, getPaper, deleteMemberPaper };
