@@ -41,6 +41,7 @@ const SignInFunction = async (userID: any, userPW: any) => {
 };
 
 const SignUpFunction = async (
+  userName: any,
   userID: any,
   userPW: any,
   userGit: String,
@@ -49,6 +50,7 @@ const SignUpFunction = async (
   if (isValidIDInput(userID) && isValidPWInput(userPW)) {
     await axios
       .post("http://localhost:8888/api/auth/register", {
+        userName: userName,
         userID: userID,
         userPW: userPW,
         userGit: userGit,

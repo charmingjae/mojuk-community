@@ -65,6 +65,7 @@ const register = async (
   next: express.NextFunction
 ) => {
   // Request info
+  const userName = req.body.userName;
   const userID = req.body.userID;
   const userPW = req.body.userPW;
   const userGit = req.body.userGit;
@@ -85,10 +86,17 @@ const register = async (
       conn.end();
     } else {
       createHashedPassword(userPW).then((result) => {
-        const query = "INSERT INTO user VALUES(?,?,?,?,?)";
+        const query = "INSERT INTO user VALUES(?,?,?,?,?,?)";
         conn.query(
           query,
-          [userID, result.hashedPassword, userGit, userPhone, result.salt],
+          [
+            userID,
+            result.hashedPassword,
+            userGit,
+            userPhone,
+            result.salt,
+            userName,
+          ],
           (err: Error, row: any) => {
             if (err) {
               conn.end();

@@ -8,10 +8,15 @@ import { AuthFunction } from "../../function/auth";
 
 const Register = () => {
   /* State */
+  const [userName, setUserName] = useState("");
   const [userID, setUserID] = useState("");
   const [userPW, setUserPW] = useState("");
   const [userGit, setUserGit] = useState("");
   const [userPhone, setUserPhone] = useState("");
+
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserName(event.target.value);
+  };
 
   const handleIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserID(event.target.value);
@@ -32,6 +37,12 @@ const Register = () => {
   return (
     <div className={styles.register_pg_box}>
       <div className={styles.register_pg_theme_wrapper}>Sign Up</div>
+      <Input
+        className={inputStyles.input_basic}
+        onChange={handleNameChange}
+        type="text"
+        placeholder="UserName"
+      />
       <Input
         className={inputStyles.input_basic}
         onChange={handleIdChange}
@@ -58,7 +69,13 @@ const Register = () => {
       />
       <Button
         onClick={() =>
-          AuthFunction.SignUpFunction(userID, userPW, userGit, userPhone)
+          AuthFunction.SignUpFunction(
+            userName,
+            userID,
+            userPW,
+            userGit,
+            userPhone
+          )
         }
         className={buttonStyles.button_signup}
         content="Sign Up"
