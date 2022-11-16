@@ -9,7 +9,9 @@ const ResumeWrapper = ({ ...props }: any) => {
       <div>
         <Button content="test" onClick={PdfFunction.testFunction} />
       </div>
-      <div className={styles.resume_wrapper}>This is Resume Wrapper</div>
+      <div className={styles.resume_wrapper} id="pdfTest">
+        This is Resume Wrapper
+      </div>
     </div>
   );
 };
