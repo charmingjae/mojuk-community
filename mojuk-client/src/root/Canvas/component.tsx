@@ -11,6 +11,7 @@ import WritePage from "../../page/Write";
 import Post from "../../page/Post";
 import Edit from "../../page/Edit";
 import MyPage from "../../page/MyPage";
+import Pdf from "../../page/Pdf";
 
 const Component = () => {
   const [userSession, setUserSession] = useState("");
@@ -48,6 +49,7 @@ const Component = () => {
           path="/mypage/:userId"
           element={<MyPage session={userSession} />}
         />
+        <Route path="/pdf/test" element={<Pdf />} />
       </Routes>
       <Footer />
     </div>

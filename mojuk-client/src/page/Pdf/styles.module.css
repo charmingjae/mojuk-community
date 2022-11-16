@@ -1,0 +1,23 @@
+@import url("../../../public/assets/fonts/fonts.css");
+
+.pdf_wrapper {
+	background-color: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/* Component */
+
+.resume_container{
+	height:100%;
+}
+
+.resume_wrapper{
+	background-color: white;
+	width: 210mm;
+	height: 100%;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}

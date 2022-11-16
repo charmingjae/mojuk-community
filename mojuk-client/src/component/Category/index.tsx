@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Category = ({ ...props }: any) => {
   return (
-    <Link to="/board/free">
+    <Link to={props.to}>
       <div className={styles.category_class}>{props.categoryName}</div>
     </Link>
   );

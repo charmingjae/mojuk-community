@@ -41,8 +41,8 @@ const InfoArea = ({ ...props }: any) => {
 const CategoryArea = ({ ...props }: any) => {
   return (
     <div className={styles.category_area_class}>
-      <Category categoryName="자유게시판" />
-      <Category />
+      <Category categoryName="자유게시판" to="/board/free" />
+      <Category categoryName="PDF" to="/pdf/test" />
       <Category />
       <Category />
     </div>
