@@ -40,7 +40,6 @@ const getBasicData = async (
   await axios
     .post("http://localhost:8888/api/data/getUserInfo", { userID: userID })
     .then((response) => {
-      console.log(response);
       const userName = response.data.userData[0].userName;
       const userPhone = response.data.userData[0].userPhone;
       const userGit = response.data.userData[0].userGit;

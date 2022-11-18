@@ -28,9 +28,18 @@
 	background-color: white;
 	width: 210mm;
 	display: grid;
-	grid-template-rows: 2fr 3fr;
+	grid-template-rows: 2fr 2fr;
 	grid-template-areas: "basicInfo"
-						"school";
+						"paper";
+}
+
+.resume_paper{
+	width: 100%;
+	background-color: white;
+	grid-area: paper;
+	display: grid;
+	align-items: center;
+	grid-template-rows: 2fr 2fr 2fr;
 }
 
 .resume_basic_info{
@@ -49,7 +58,6 @@
 
 .resume_theme{
 	background-color: white;
-	height:100%;
 	display:grid;
 	align-items: center;
 	font-size: 23px;

@@ -3,6 +3,7 @@ import Button from "../../component/Button";
 import styles from "./styles.module.css";
 import { PdfFunction } from "../../function/pdf";
 import { useParams } from "react-router";
+import { PaperFunction } from "../../function/paper";
 
 const ResumeTheme = ({ ...props }: any) => {
   return <div className={styles.resume_theme}>{props.theme}</div>;
@@ -22,6 +23,18 @@ const ResumeBasicInfo = (userBasicInfo: any, { ...props }: any) => {
   );
 };
 
+const ResumePaper = ({ ...props }: any) => {
+  console.log("publication : ", props.userPublication);
+  return (
+    <div className={styles.resume_paper}>
+      <ResumeTheme theme="PUBLICATION" />
+      {props.userPublication.map((obj) => (
+        <div key={obj.idx}>{obj.theme}</div>
+      ))}
+    </div>
+  );
+};
+
 // Wrapper
 const ResumeWrapper = ({ ...props }: any) => {
   const [loading, setLoading] = useState(false);
@@ -32,9 +45,11 @@ const ResumeWrapper = ({ ...props }: any) => {
     email: "",
     github: "",
   });
+  const [publication, setPublication] = useState([]);
 
   useEffect(() => {
     PdfFunction.getBasicData(userId, basicInfo, setBasicInfo, setLoading);
+    PaperFunction.getPaper(userId, setPublication, setLoading);
   }, []);
 
   return (
@@ -45,6 +60,7 @@ const ResumeWrapper = ({ ...props }: any) => {
       <div className={styles.resume_wrap} id="pdfWrapper">
         <div className={styles.resume_wrapper} id="pdfTest">
           <ResumeBasicInfo userBasicInfo={basicInfo} />
+          <ResumePaper userPublication={publication} />
         </div>
       </div>
     </div>
