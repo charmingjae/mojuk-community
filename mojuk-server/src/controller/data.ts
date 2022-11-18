@@ -11,7 +11,22 @@ const getUserInfo = async (
   res: express.Response,
   next: express.NextFunction
 ) => {
-  console.log("request : ", req.body);
+  const userID = req.body.userID;
+
+  let query =
+    "SELECT userID, userName, userGit, userPhone FROM user WHERE userID = ?";
+  const conn = await mysql.createConnection(dbProperty);
+  conn.query(query, [userID], (err: any, row: any) => {
+    if (err) {
+      conn.end();
+      throw err;
+    } else {
+      res
+        .status(200)
+        .send({ message: "Find User data", status: "success", userData: row });
+      conn.end();
+    }
+  });
 };
 
 const getUserInfoByName = async (

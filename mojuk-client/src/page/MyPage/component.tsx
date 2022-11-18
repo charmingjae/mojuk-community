@@ -6,6 +6,7 @@ import { AuthFunction } from "../../function/auth";
 import MyPageCategory from "../../component/MyPageCategory";
 import Basic from "./Page/Basic";
 import Publication from "./Page/Publication";
+import { Link } from "react-router-dom";
 
 const MPInfo = ({ ...props }: any) => {
   return <div className={styles.mypage_info}>{props.session}</div>;
@@ -15,6 +16,9 @@ const MPHeader = ({ ...props }: any) => {
   return (
     <div className={styles.mypage_header}>
       <MPInfo {...props} />
+      <Link to={`/pdf/${props.session}`}>
+        <Button className={btnStyles.button_topdf} content="PDF" />
+      </Link>
       <Button
         className={btnStyles.button_logout}
         content="로그아웃"

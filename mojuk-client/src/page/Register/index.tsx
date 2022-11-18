@@ -12,6 +12,7 @@ const Register = () => {
   const [userID, setUserID] = useState("");
   const [userPW, setUserPW] = useState("");
   const [userGit, setUserGit] = useState("");
+  const [userEmail, setUserEmail] = useState("");
   const [userPhone, setUserPhone] = useState("");
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,6 +29,10 @@ const Register = () => {
 
   const handleGitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserGit(event.target.value);
+  };
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserEmail(event.target.value);
   };
 
   const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,6 +65,12 @@ const Register = () => {
         onChange={handleGitChange}
         type="text"
         placeholder="gitHub ex)charmingjae"
+      />
+      <Input
+        className={inputStyles.input_basic}
+        onChange={handleEmailChange}
+        type="text"
+        placeholder="Email"
       />
       <Input
         className={inputStyles.input_basic}

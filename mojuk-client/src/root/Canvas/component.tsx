@@ -49,7 +49,7 @@ const Component = () => {
           path="/mypage/:userId"
           element={<MyPage session={userSession} />}
         />
-        <Route path="/pdf/test" element={<Pdf />} />
+        <Route path="/pdf/:userId" element={<Pdf />} />
       </Routes>
       <Footer />
     </div>

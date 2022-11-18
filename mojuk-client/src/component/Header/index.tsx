@@ -31,7 +31,7 @@ const Header = ({ ...props }: any) => {
       ) : (
         <>
           <LogoArea />
-          <CategoryArea />
+          <CategoryArea loggedIn={loggedIn} />
           <InfoArea loggedIn={loggedIn} />
         </>
       )}

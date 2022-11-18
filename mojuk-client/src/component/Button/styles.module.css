@@ -135,6 +135,18 @@
 	margin-top: 1%;
 }
 
+.button_topdf{
+	background-color: #012D7F;
+	border: 1px solid #012D7F;
+	color: white;
+	font-family: 'pret-semibold';
+	font-size: medium;
+	cursor: pointer;
+	height: 100%;
+	width: 100%;
+	margin-top: 1%;
+}
+
 .button_modify {
 	font-family: 'pret-semibold';
 	background-color: #012D7F;

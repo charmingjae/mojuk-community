@@ -91,11 +91,11 @@ const register = async (
           query,
           [
             userID,
+            userName,
             result.hashedPassword,
             userGit,
             userPhone,
             result.salt,
-            userName,
           ],
           (err: Error, row: any) => {
             if (err) {
