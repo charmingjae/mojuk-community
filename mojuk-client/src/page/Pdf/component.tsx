@@ -23,14 +23,35 @@ const ResumeBasicInfo = (userBasicInfo: any, { ...props }: any) => {
   );
 };
 
+const ResumePaperItem = ({ item }: any) => {
+  console.log("item : ", item);
+  const publishDate =
+    item.publishDate.split("-")[1] +
+    ". " +
+    item.publishDate.split("-")[0] +
+    ".";
+
+  return (
+    <div key={item.idx} className={styles.resume_paper_item}>
+      <div>"{item.theme}"</div>
+      <div>
+        <i>{item.society}</i>
+      </div>
+      <div>{publishDate}</div>
+    </div>
+  );
+};
+
 const ResumePaper = ({ ...props }: any) => {
   console.log("publication : ", props.userPublication);
   return (
     <div className={styles.resume_paper}>
       <ResumeTheme theme="PUBLICATION" />
-      {props.userPublication.map((obj) => (
-        <div key={obj.idx}>{obj.theme}</div>
-      ))}
+      <div className={styles.resume_table}>
+        {props.userPublication.map((obj) => (
+          <ResumePaperItem item={obj} />
+        ))}
+      </div>
     </div>
   );
 };
