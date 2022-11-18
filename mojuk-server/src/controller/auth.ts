@@ -69,6 +69,7 @@ const register = async (
   const userID = req.body.userID;
   const userPW = req.body.userPW;
   const userGit = req.body.userGit;
+  const userEmail = req.body.userEmail;
   const userPhone = req.body.userPhone;
 
   // Query String
@@ -86,7 +87,7 @@ const register = async (
       conn.end();
     } else {
       createHashedPassword(userPW).then((result) => {
-        const query = "INSERT INTO user VALUES(?,?,?,?,?,?)";
+        const query = "INSERT INTO user VALUES(?,?,?,?,?,?,?)";
         conn.query(
           query,
           [
@@ -94,6 +95,7 @@ const register = async (
             userName,
             result.hashedPassword,
             userGit,
+            userEmail,
             userPhone,
             result.salt,
           ],

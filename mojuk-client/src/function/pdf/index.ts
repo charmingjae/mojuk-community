@@ -44,10 +44,12 @@ const getBasicData = async (
       const userName = response.data.userData[0].userName;
       const userPhone = response.data.userData[0].userPhone;
       const userGit = response.data.userData[0].userGit;
+      const userEmail = response.data.userData[0].userEmail;
 
       setBasicInfo((basicInfo) => ({ ...basicInfo, userName: userName }));
       setBasicInfo((basicInfo) => ({ ...basicInfo, phone: userPhone }));
       setBasicInfo((basicInfo) => ({ ...basicInfo, github: userGit }));
+      setBasicInfo((basicInfo) => ({ ...basicInfo, email: userEmail }));
     });
 };
 

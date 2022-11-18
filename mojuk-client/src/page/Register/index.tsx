@@ -85,6 +85,7 @@ const Register = () => {
             userID,
             userPW,
             userGit,
+            userEmail,
             userPhone
           )
         }

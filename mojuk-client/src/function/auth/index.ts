@@ -45,6 +45,7 @@ const SignUpFunction = async (
   userID: any,
   userPW: any,
   userGit: String,
+  userEmail: String,
   userPhone: String
 ) => {
   if (isValidIDInput(userID) && isValidPWInput(userPW)) {
@@ -54,6 +55,7 @@ const SignUpFunction = async (
         userID: userID,
         userPW: userPW,
         userGit: userGit,
+        userEmail: userEmail,
         userPhone: userPhone,
       })
       .then((response) => {

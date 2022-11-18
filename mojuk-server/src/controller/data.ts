@@ -14,7 +14,7 @@ const getUserInfo = async (
   const userID = req.body.userID;
 
   let query =
-    "SELECT userID, userName, userGit, userPhone FROM user WHERE userID = ?";
+    "SELECT userID, userName, userGit, userEmail, userPhone FROM user WHERE userID = ?";
   const conn = await mysql.createConnection(dbProperty);
   conn.query(query, [userID], (err: any, row: any) => {
     if (err) {

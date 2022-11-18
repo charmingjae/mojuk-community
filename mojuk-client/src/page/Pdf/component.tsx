@@ -16,7 +16,7 @@ const ResumeBasicInfo = (userBasicInfo: any, { ...props }: any) => {
       <div className={styles.basic_userName}>{userInfo.userName}</div>
       <ResumeTheme theme="CONTACT" />
       <div className={styles.basic_phone}> 📞 {userInfo.phone}</div>
-      <div className={styles.basic_email}> 🌍 chaminjae.official@gmail.com</div>
+      <div className={styles.basic_email}> 🌍 {userInfo.email}</div>
       <div className={styles.basic_github}>📖 github.com/{userInfo.github}</div>
     </div>
   );
